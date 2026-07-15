@@ -13,6 +13,12 @@ Robert Galbraith's Cormoran Strike novels and their BBC/HBO TV adaptation
 (character-driven detective procedural). Treat this as a starting checklist,
 not a rigid template: expand it in place as new genres/premises are handled.
 
+A full worked example of the found-footage structure — fully original title,
+characters, and mythology, built to demonstrate Steps 2–5 end to end after a
+user asked for "a Blair Witch style example script" — lives at
+`examples/the-quiet-acre.fountain` in this skill's directory. Read it
+alongside Steps 2–5 rather than re-deriving the structure from scratch.
+
 ## Step 0 — IP safety check (do this before writing anything)
 
 If the user's premise names, or closely tracks, an existing copyrighted
@@ -181,4 +187,6 @@ conventions, non-horror found-footage (mockumentary comedy), or genre
 presets (slasher, sci-fi first-contact, legal/courtroom drama, etc.). Keep
 the IP-safety check (Step 0) genre-agnostic — it applies regardless of what
 kind of script is being written, including to the detective-procedural
-preset above.
+preset above. Drop additional worked examples into `examples/` as they're
+written (one file per example, self-contained) rather than pasting full
+scripts into this file.
