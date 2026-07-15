@@ -1,0 +1,368 @@
+<!--
+  TABLOID FRONT-PAGE TEMPLATE — tabloid-gossip-voice skill
+
+  Reusable layout for an anonymous "kiss and tell" gossip column, first built
+  for "Kiss & Tell / The Stickybeak." Persona-agnostic: swap the tokens below
+  for a new handle/publication and the layout still holds.
+
+  HOW TO USE
+  1. Copy this file (don't edit it in place) to the target scratchpad/project path.
+  2. Find-and-replace every {{TOKEN}} — see the list below. None are optional;
+     if a section doesn't apply (e.g. no pull-quote for an item), delete that
+     element rather than leaving a token unfilled.
+  3. Duplicate the <div class="item">...</div> block for each gossip item
+     (3-5 reads well; the drop-cap only applies to the first item's first
+     paragraph via CSS, so keep the genuinely "lead" item first).
+  4. Duplicate the <li> inside .spotted for each quick-hit (3-5 reads well).
+  5. Delete this comment block before publishing.
+
+  TOKENS
+    {{PUBLICATION_TITLE}}      e.g. "KISS &amp;"        — first part of masthead
+    {{PUBLICATION_EMPHASIS}}   e.g. "TELL"               — second part, rendered in accent color
+    {{KICKER}}                 small script line above the masthead, sets tone
+    {{PERSONA_BYLINE}}         e.g. "with The Stickybeak"
+    {{TAGLINE}}                short bragging line, left slot of masthead meta row
+    {{ISSUE_NO}}               e.g. "Issue No. 114"
+    {{CIRCULATION_JOKE}}       e.g. "Circulation: everyone who's muted a group chat"
+    {{STAMP_TEXT}}             e.g. "Exclusive"
+    {{PERSONA_AVATAR_EMOJI}}   one emoji standing in for a photo, e.g. eyes/lipstick
+    {{PERSONA_NAME}}           e.g. "The Stickybeak"
+    {{PERSONA_BIO}}            2-4 sentences, third person, ends with the
+                               "names changed / invented" wink appropriate to
+                               the piece (see skill Step 0/3 for when this is
+                               load-bearing vs. decorative)
+    {{ITEM_HEADLINE_PLAIN}} / {{ITEM_HEADLINE_ACCENT}}
+                               headline split so the place/subject name can be
+                               rendered in accent color; ACCENT can be empty
+    {{ITEM_BODY_1}}, {{ITEM_BODY_2}}, ...
+                               paragraph(s) of the item
+    {{ITEM_QUOTE}}             optional faux-quote pull-line; delete the
+                               <blockquote> entirely if not using one
+    {{SPOTTED_HEADING}}        e.g. "Spotted on the Vine"
+    {{SPOTTED_ITEM}}           one per <li>
+    {{TIP_LEAD}}               e.g. "Got dirt, darling?"
+    {{TIP_BODY}}               sign-off / call for tips, in persona voice
+    {{FINEPRINT}}              disclaimer that names/scandals are invented —
+                               keep this whenever items are composite/fictional
+    {{DOC_TITLE}}              <title> tag text, e.g. "Kiss &amp; Tell — with The Stickybeak"
+
+  This file has no external font/asset dependencies and supports both light
+  and dark viewer themes out of the box (see :root / [data-theme] tokens).
+-->
+<title>{{DOC_TITLE}}</title>
+<style>
+  :root{
+    --ink:#17151b;
+    --paper:#e7e1cd;
+    --paper-2:#ddd6bd;
+    --pink:#c62368;
+    --pink-deep:#8f1a4b;
+    --mustard:#e2a712;
+    --teal:#14636b;
+    --rule:rgba(23,21,27,0.18);
+    --shadow:rgba(23,21,27,0.25);
+  }
+  :root[data-theme="dark"]{
+    --ink:#f1ece0;
+    --paper:#1c1a20;
+    --paper-2:#26232b;
+    --pink:#ff6fa5;
+    --pink-deep:#ff9dc2;
+    --mustard:#f0c04a;
+    --teal:#5bd0d9;
+    --rule:rgba(241,236,224,0.22);
+    --shadow:rgba(0,0,0,0.5);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#f1ece0;
+      --paper:#1c1a20;
+      --paper-2:#26232b;
+      --pink:#ff6fa5;
+      --pink-deep:#ff9dc2;
+      --mustard:#f0c04a;
+      --teal:#5bd0d9;
+      --rule:rgba(241,236,224,0.22);
+      --shadow:rgba(0,0,0,0.5);
+    }
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:Georgia,"Times New Roman",serif;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:900px;
+    margin:0 auto;
+    padding:2.5rem 1.5rem 4rem;
+  }
+
+  /* ---- Masthead ---- */
+  .masthead{
+    text-align:center;
+    padding-bottom:1.4rem;
+    border-bottom:4px double var(--ink);
+  }
+  .kicker{
+    font-family:"Segoe Script","Bradley Hand",cursive;
+    font-size:1.05rem;
+    color:var(--pink-deep);
+    letter-spacing:.02em;
+    margin:0 0 .2rem;
+  }
+  .title{
+    font-family:Rockwell,"Roboto Slab",Georgia,serif;
+    font-weight:700;
+    font-size:clamp(2.6rem,8vw,4.6rem);
+    letter-spacing:.02em;
+    margin:0;
+    text-wrap:balance;
+    color:var(--ink);
+  }
+  .title em{
+    font-style:normal;
+    color:var(--pink);
+  }
+  .subhead{
+    font-family:Arial Narrow,Arial,sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    font-size:.8rem;
+    color:var(--ink);
+    opacity:.75;
+    margin-top:.6rem;
+  }
+  .masthead-meta{
+    display:flex;
+    justify-content:center;
+    gap:1.2rem;
+    flex-wrap:wrap;
+    font-family:Arial Narrow,Arial,sans-serif;
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    opacity:.6;
+    margin-top:.9rem;
+  }
+
+  /* torn edge under masthead */
+  .torn{
+    height:14px;
+    margin:0 -1.5rem 2.2rem;
+    background:
+      linear-gradient(135deg, var(--paper) 25%, transparent 25.5%) 0 0/14px 14px,
+      linear-gradient(225deg, var(--paper) 25%, transparent 25.5%) 0 0/14px 14px;
+    background-color:var(--ink);
+    opacity:.9;
+  }
+
+  /* ---- Byline card ---- */
+  .byline-card{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:1.1rem;
+    align-items:start;
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    padding:1.2rem 1.3rem;
+    margin-bottom:2.4rem;
+    position:relative;
+    box-shadow:0 6px 0 var(--shadow);
+  }
+  .avatar{
+    width:64px;height:64px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--pink) 0%, var(--pink-deep) 60%, var(--ink) 140%);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.6rem;
+    flex-shrink:0;
+  }
+  .byline-card h2{
+    margin:0 0 .3rem;
+    font-family:Rockwell,"Roboto Slab",Georgia,serif;
+    font-size:1.15rem;
+    letter-spacing:.03em;
+  }
+  .byline-card p{
+    margin:0;
+    font-size:.95rem;
+  }
+  .stamp{
+    position:absolute;
+    top:-14px; right:-10px;
+    background:var(--mustard);
+    color:var(--ink);
+    font-family:Arial Narrow,Arial,sans-serif;
+    font-weight:800;
+    font-size:.68rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:.35rem .6rem;
+    transform:rotate(6deg);
+    box-shadow:0 3px 0 var(--shadow);
+  }
+
+  /* ---- Column body ---- */
+  .column{
+    columns:2;
+    column-gap:2.2rem;
+  }
+  @media (max-width:640px){ .column{columns:1;} }
+
+  .item{
+    break-inside:avoid;
+    margin-bottom:1.9rem;
+  }
+  .item h3{
+    font-family:Rockwell,"Roboto Slab",Georgia,serif;
+    font-size:1.15rem;
+    line-height:1.25;
+    margin:0 0 .5rem;
+    color:var(--ink);
+  }
+  .item h3 span{
+    color:var(--pink);
+  }
+  .item p{
+    margin:0 0 .7rem;
+    font-size:.98rem;
+  }
+  .item:first-of-type p:first-of-type::first-letter{
+    font-family:Rockwell,"Roboto Slab",Georgia,serif;
+    font-size:3.1rem;
+    float:left;
+    line-height:.8;
+    padding:.05em .08em 0 0;
+    color:var(--pink);
+  }
+
+  blockquote{
+    font-family:"Segoe Script","Bradley Hand",cursive;
+    font-size:1.05rem;
+    color:var(--teal);
+    border:none;
+    margin:.6rem 0 .8rem 0;
+    padding:.4rem .8rem;
+    background:var(--paper-2);
+    transform:rotate(-1.2deg);
+    display:inline-block;
+  }
+
+  /* ---- Spotted sidebar ---- */
+  .spotted{
+    margin:2.4rem 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+    padding:1rem 0;
+  }
+  .spotted h4{
+    font-family:Arial Narrow,Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.78rem;
+    color:var(--pink-deep);
+    margin:0 0 .6rem;
+  }
+  .spotted ul{
+    margin:0;
+    padding-left:1.1rem;
+  }
+  .spotted li{
+    margin-bottom:.45rem;
+    font-size:.94rem;
+  }
+
+  /* ---- Footer tip box ---- */
+  .tipbox{
+    margin-top:2.6rem;
+    border:2px dashed var(--ink);
+    padding:1.2rem 1.3rem;
+    text-align:center;
+  }
+  .tipbox p{
+    margin:0;
+    font-size:.95rem;
+  }
+  .tipbox .lead{
+    font-family:Rockwell,"Roboto Slab",Georgia,serif;
+    font-size:1.05rem;
+    margin-bottom:.4rem;
+  }
+
+  .fineprint{
+    text-align:center;
+    font-family:Arial Narrow,Arial,sans-serif;
+    font-size:.7rem;
+    letter-spacing:.05em;
+    opacity:.55;
+    margin-top:1.6rem;
+    font-style:italic;
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <p class="kicker">{{KICKER}}</p>
+    <h1 class="title">{{PUBLICATION_TITLE}} <em>{{PUBLICATION_EMPHASIS}}</em></h1>
+    <p class="subhead">{{PERSONA_BYLINE}}</p>
+    <p class="masthead-meta">
+      <span>{{TAGLINE}}</span>
+      <span>{{ISSUE_NO}}</span>
+      <span>{{CIRCULATION_JOKE}}</span>
+    </p>
+  </header>
+  <div class="torn"></div>
+
+  <section class="byline-card">
+    <span class="stamp">{{STAMP_TEXT}}</span>
+    <div class="avatar">{{PERSONA_AVATAR_EMOJI}}</div>
+    <div>
+      <h2>Who is {{PERSONA_NAME}}?</h2>
+      <p>{{PERSONA_BIO}}</p>
+    </div>
+  </section>
+
+  <!--
+    ITEM BLOCK — duplicate this whole <div class="item">...</div> once per
+    gossip item (3-5 total reads well). Delete the <blockquote> line on any
+    item that doesn't need a pull-quote. Only the very first item's first
+    paragraph gets the CSS drop-cap, so put your strongest lead item first.
+  -->
+  <div class="column">
+    <div class="item">
+      <h3>{{ITEM_HEADLINE_PLAIN}} <span>{{ITEM_HEADLINE_ACCENT}}</span></h3>
+      <p>{{ITEM_BODY_1}}</p>
+      <blockquote>{{ITEM_QUOTE}}</blockquote>
+      <p>{{ITEM_BODY_2}}</p>
+    </div>
+    <!-- repeat <div class="item">...</div> for each additional item -->
+  </div>
+
+  <!--
+    SPOTTED SIDEBAR — quick one-liner hits, 3-5 <li> reads well. Delete the
+    whole <section class="spotted"> if the piece is a straight rewrite
+    rather than a multi-item "issue."
+  -->
+  <section class="spotted">
+    <h4>{{SPOTTED_HEADING}}</h4>
+    <ul>
+      <li>{{SPOTTED_ITEM}}</li>
+      <!-- repeat <li> for each additional quick hit -->
+    </ul>
+  </section>
+
+  <section class="tipbox">
+    <p class="lead">{{TIP_LEAD}}</p>
+    <p>{{TIP_BODY}}</p>
+  </section>
+
+  <p class="fineprint">{{FINEPRINT}}</p>
+
+</div>
