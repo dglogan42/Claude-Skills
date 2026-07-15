@@ -8,8 +8,10 @@ user-invocable: true
 
 A working method for turning a loose premise into a full, original screenplay —
 built from doing this once for a found-footage investigation piece
-("UNLISTED"). Treat this as a starting checklist, not a rigid template:
-expand it in place as new genres/premises are handled.
+("UNLISTED"), plus a second genre preset generalized from the structure of
+Robert Galbraith's Cormoran Strike novels and their BBC/HBO TV adaptation
+(character-driven detective procedural). Treat this as a starting checklist,
+not a rigid template: expand it in place as new genres/premises are handled.
 
 ## Step 0 — IP safety check (do this before writing anything)
 
@@ -122,11 +124,61 @@ The Blair Witch model, generalized:
   Fountain/PDF formatting, write additional found-footage inserts) rather
   than assuming the first draft is final.
 
+## Genre preset — character-driven detective/investigation procedural
+
+Structural inspiration: the Cormoran Strike novels (Robert Galbraith, i.e.
+J.K. Rowling; eight books 2013–2025, published in NZ by Hachette Aotearoa)
+and their TV adaptation *Strike* (Brontë Film and Television, for BBC/HBO,
+starring Tom Burke and Holliday Grainger). Per Step 0, this preset captures
+the genre's *shape*, not that series' specific characters or plots — a
+premise that names or closely tracks Strike itself still needs the Step 0
+IP conversation before drafting.
+
+**Structural blueprint:**
+
+1. **Client cold open.** A small, human-scale problem walks in the door
+   (an infidelity check, a missing person, a "prove I didn't do this")
+   that reads as minor until it snags on something bigger partway through.
+2. **Investigator-duo dynamic.** A lead investigator carrying a visible
+   disadvantage (physical, financial, reputational) paired with a partner
+   whose skills complement and, over time, start to rival theirs. This
+   relationship — not any single case — is the throughline that develops
+   across installments independent of whether a given case resolves it.
+3. **Procedural texture.** Surveillance, interviews, paper/financial/
+   digital trails, dead ends and re-interviews. The city is rendered as a
+   specific, textured place (particular streets, transit, class markers),
+   not a generic backdrop.
+4. **Midpoint entanglement.** The case snags one investigator's own
+   history — an old relationship, a past case, a family thread — so the
+   professional and personal stakes start overlapping.
+5. **Convergence climax.** The case's resolution and the partners'
+   personal-life pressures collide in the same scene or sequence, rather
+   than resolving on separate tracks.
+6. **Deliberately unresolved relationship beat.** The case closes with a
+   clear answer; the partners' relationship gets a beat of
+   forward-motion or held tension that stays open — this is what seeds a
+   sequel/next episode rather than a spinoff.
+
+**Cast conventions:** a two-person investigator team (not a full ensemble)
+keeps the relationship throughline legible; a client and a small rotating
+suspect pool per case; recurring supporting figures (a police contact who's
+alternately obstacle and ally, family/ex-partners who pull each lead
+character back into their personal life) tie the case-of-the-book structure
+to the ongoing arc.
+
+**Novel-to-screenplay/pilot notes:** when adapting a long, interior novel
+into script form, decide up front (via `AskUserQuestion` if genuinely open)
+how the book's introspection converts to visual/dialogue beats, where a
+cold open vs. a mid-point reveal falls if compressing into an episode
+structure, and how many book-chapters map to one scene vs. one act —
+don't assume a 1:1 chapter-to-scene mapping.
+
 ## To expand this skill later
 
 Add sections for other screenplay modes as they come up: traditional
 three-act narrative features, sitcom/multi-cam format, stage-play
 conventions, non-horror found-footage (mockumentary comedy), or genre
-presets (slasher, sci-fi first-contact, etc.). Keep the IP-safety check
-(Step 0) genre-agnostic — it applies regardless of what kind of script is
-being written.
+presets (slasher, sci-fi first-contact, legal/courtroom drama, etc.). Keep
+the IP-safety check (Step 0) genre-agnostic — it applies regardless of what
+kind of script is being written, including to the detective-procedural
+preset above.
