@@ -9,8 +9,9 @@ user-invocable: true
 A working method for writing in — or rewriting existing text into — an
 anonymous tabloid gossip columnist's voice, built from one persona
 (**The Stickybeak**, "Kiss & Tell") used first for an invented Facebook
-community-group column, then for a style-transfer pass on a user's own
-personal essay. Treat this as a starting checklist, not a rigid template.
+community-group column, then for style-transfer passes on a user's own
+personal essays (a relationship/dating column; a sexual-health column).
+Treat this as a starting checklist, not a rigid template.
 
 ## Step 0 — Real-person safety check (do this before writing anything)
 
@@ -59,6 +60,18 @@ else — don't improvise voice and content simultaneously.
   a tip-line sign-off) is optional seasoning for long-form prose rewrites —
   don't force full tabloid-page formatting onto something meant to read as
   continuous narrative.
+- If the source is already first-person about the writer's own life (a
+  personal column, a diary-style essay), keep that person as the narrator
+  and dial *them* up into Stickybeak register — don't switch to a
+  third-party reporter voice gossiping about a stranger. Confirmed working
+  on an east-Auckland dating column and a sexual-health personal essay:
+  the "reader"-address and "sources confirm" tics read as the columnist
+  being arch about her own life, not a stranger sniping at her.
+- When the source contains factual/informational content (health stats,
+  medical explanations, how something works), preserve the substance
+  exactly — alliteration and asides go around the facts, not into them.
+  Tested on fertility statistics and STI-management info; the comedic
+  voice sits in the framing sentences, the numbers and claims stay intact.
 
 ## Step 3 — Fresh-item conventions (drafting new gossip, not rewriting)
 
