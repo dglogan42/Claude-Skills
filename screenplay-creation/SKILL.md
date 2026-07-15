@@ -96,6 +96,12 @@ The Blair Witch model, generalized:
   narration/recordings layered over other footage.
 - Title cards and text cards go on their own line, in caps, no scene
   heading — they're outside the diegetic footage.
+- **Confessional cutaway** — a character alone, addressing the camera
+  directly with no one else in the scene, works as a tension-release beat
+  between escalation sequences. It reads as more intimate/vulnerable than
+  group dialogue precisely because there's no one on-screen to perform
+  for; use it to land guilt, an apology, or a quiet admission of fear
+  right before (or instead of) a jump in the escalation.
 
 ## Step 4 — Cast conventions
 
@@ -108,6 +114,18 @@ The Blair Witch model, generalized:
 - A cursed or toxic media object (a game, broadcast, book, video series)
   is a strong engine for Act 1 research scenes — it lets exposition happen
   through screen inserts instead of dialogue dumps.
+- **Dialogue register:** write the crew's Act 2 arguments as naturalistic
+  and overlapping — interruptions, repeated accusations, someone talking
+  over someone else's attempt to de-escalate — rather than clean
+  back-and-forth exchanges. Real group stress reads as circular and
+  repetitive, not as a well-argued debate; let a fight restate the same
+  two or three grievances instead of introducing new ones each line.
+- **Blame has a throughline of its own.** Give one crew member a concrete,
+  practical failure early (lost gear, a bad call, a broken piece of
+  equipment) that the group can hang blame on. That grievance should
+  resurface at each new low point — it gives the cast something to fight
+  about that isn't "the horror," which keeps their conflict legible even
+  when the supernatural material stays ambiguous.
 
 ## Step 5 — Escalation toolkit
 
@@ -120,6 +138,34 @@ The Blair Witch model, generalized:
   now sitting somewhere impossible).
 - Never give a clean explanation for the horror in-script. Ambiguity is
   the payoff, not a placeholder for a cut scene.
+- **Group fracture precedes each disappearance.** Sequence a relationship
+  breakdown (an argument, someone storming off, trust visibly breaking)
+  immediately before a character goes missing or the crew otherwise
+  loses someone — the horror follows the fracture, not the other way
+  around. This makes each loss feel like a consequence of the group
+  failing each other, not a random attack.
+- **Escalate nocturnal disturbances on a ladder, not at random.** Each
+  night's disturbance should be a clear step up from the last — first
+  distant, then surrounding/circling, then physically disturbing the
+  camp itself, then a direct threat to the shelter. Keep the steps
+  discrete enough that the audience can track the ladder even without
+  being told the horror is "getting worse."
+- **Silent evidence beats direct threat.** Objects appearing at the
+  campsite overnight (rearranged, left behind, clearly placed rather than
+  dropped) and discovered only in daylight build more dread than another
+  nighttime chase — the audience fills in an encounter no one on-screen
+  witnessed.
+- **Strip practical tools before emotional ones.** Take away the group's
+  means of solving the problem logistically (a map, a working device, a
+  clear bearing) so remaining scenes force behavioral and relational
+  choices instead of plot-solving ones — the story keeps moving through
+  what the characters do to each other, not through a puzzle getting
+  solved.
+- **Cut before the payoff, not after.** Let the last scene's audio or
+  image cut off mid-event — a dropped camera, a call cut mid-word — so
+  the crisis is confirmed to have happened without ever being shown
+  resolved. This is the found-footage-native version of "don't
+  over-explain the horror": the cut itself is the withheld information.
 
 ## Step 6 — Delivery
 
