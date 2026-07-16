@@ -1,6 +1,6 @@
 ---
 name: canon-fanfic-vignette
-description: Write short, standalone vignettes, vacation-journal entries, or review columns using named copyrighted characters from an existing franchise, scoped to personal non-commercial short-form fan work rather than a serialized retelling. Three founding cases — Luke Skywalker reimagined as a planetary kyber-crystal prospector after the destruction of Scariff and Jedha City (Rogue One-era Star Wars canon); Shaggy Rogers and Scooby-Doo trying to have an ordinary vacation that a rubber-mask mystery keeps interrupting; and Garfield as a lasagna-obsessed restaurant critic. Use when the user wants a scene, character study, in-voice journal, or in-voice review column built on actual named IP characters, rather than an original-character transformation (see faded-hero-voice for that path). This is a seed skill: sparse by design, built from three personas; expand with more source franchises and premises as they come up.
+description: Write short, standalone vignettes, vacation-journal entries, review columns, or think-piece essays using named copyrighted characters from an existing franchise, scoped to personal non-commercial short-form fan work rather than a serialized retelling. Four founding cases — Luke Skywalker reimagined as a planetary kyber-crystal prospector after the destruction of Scariff and Jedha City (Rogue One-era Star Wars canon); Shaggy Rogers and Scooby-Doo trying to have an ordinary vacation that a rubber-mask mystery keeps interrupting; Garfield as a lasagna-obsessed restaurant critic; and Alan Grant (Jurassic Park) as a sanctuary zookeeper writing ecological field-notes essays. Use when the user wants a scene, character study, in-voice journal, in-voice review column, or in-voice essay built on actual named IP characters, rather than an original-character transformation (see faded-hero-voice for that path). This is a seed skill: sparse by design, built from four personas; expand with more source franchises and premises as they come up.
 user-invocable: true
 ---
 
@@ -9,12 +9,15 @@ user-invocable: true
 A working method for writing short, standalone pieces that use an existing
 franchise's named characters, places, and objects directly — rather than
 transforming them into a new original persona (that's `faded-hero-voice`).
-Built from two founding cases: **Luke Skywalker**, reimagined as a planetary
-kyber-crystal prospector working the wreckage left after Scariff and Jedha
-City are destroyed (Rogue One-era Star Wars canon, ~0 BBY); and **Shaggy
-Rogers and Scooby-Doo**, trying to have one ordinary vacation that a
-rubber-mask mystery keeps interrupting. Treat this as a starting checklist,
-not a rigid template.
+Built from four founding cases: **Luke Skywalker**, reimagined as a
+planetary kyber-crystal prospector working the wreckage left after Scariff
+and Jedha City are destroyed (Rogue One-era Star Wars canon, ~0 BBY);
+**Shaggy Rogers and Scooby-Doo**, trying to have one ordinary vacation that
+a rubber-mask mystery keeps interrupting; **Garfield**, filing restaurant
+reviews scored in lasagnas; and **Alan Grant**, trading a paleontology
+career for hands-on work at an animal sanctuary and writing ecological
+field-notes essays about it. Treat this as a starting checklist, not a
+rigid template.
 
 ## Step 0 — Scope boundary (do this before writing anything)
 
@@ -156,6 +159,52 @@ patrol report) rather than reusing another skill's template wholesale.
   badge, a pull-quote) suits this better than a narrative-vignette
   template — its own visual object, not a reuse of Luke's field-log or
   Shaggy's scrapbook templates.
+
+## Persona 4 — Alan Grant, sanctuary zookeeper and essayist
+
+- **Format.** First-person think-piece essays — "field notes" that pivot
+  into something more reflective — not a narrative scene or a joke column.
+  Closer in register to an op-ed than to Garfield's review bit.
+- **Setting.** Some time after the animals got loose into the wider world
+  (post-Fallen-Kingdom-era premise, not tied to a specific film's plot).
+  Grant has taken a hands-on caretaking post at a rescue/rehabilitation
+  sanctuary instead of returning to a dig site or a lecture hall.
+- **The central irony is the engine.** He spent a career reading extinction
+  in stone — reconstructing dead animals from fragments. He now spends his
+  days preventing extinction in real time: feeding schedules, wound care,
+  enclosure repairs, the unglamorous physical labor of keeping something
+  alive that he used to only ever meet as a fossil. Let his academic,
+  precise vocabulary land on distinctly unglamorous chores (a phrase you'd
+  expect in a peer-reviewed paper, aimed at a bucket of feed) — the same
+  device `faded-hero-voice` uses with grandiose diction on laundry, here
+  played straight and dry instead of comic.
+- **Voice.** Measured, dry, faintly weary of people rather than animals —
+  a career-long throughline of preferring the company of something that
+  can't lie to him. Skeptical of spectacle, branding, and anyone talking
+  about "restoration" or "de-extinction" as a product rather than a
+  responsibility. Undercut the crankiness with real, unguarded awe at the
+  animals themselves — that gap (impatient with humans, moved by the
+  animal in front of him) is the persona's signature, not a contradiction
+  to smooth over.
+- **Recurring structural device.** Open an entry with a clipped, clinical
+  field observation (weight, behavior, feeding notes — the way he'd have
+  once logged a dig site) before letting it open out into the actual
+  essay. The pivot from data to reflection, every time, is the piece's
+  rhythm.
+- **Themes to draw on.** The ethics of care under commercial pressure; grief
+  for a truer version of these animals that got skipped past on the way to
+  a gate receipt; the discomfort of holding scientific authority without
+  real control over how any of this was built; small, specific tenderness
+  for one animal in particular breaking through the essay's argument
+  rather than stating it outright. Don't quote the franchise's iconic lines
+  verbatim (paraphrase the "these are wild animals" sentiment, the
+  awe-at-first-sight beat, etc.) — the ideas are fair game, the exact
+  wording isn't.
+- **Delivery.** A short piece: chat text is fine. A longer or serialized
+  set: a plain, well-set "field notes" page — index-card metadata
+  (specimen, date, enclosure) above a running essay — reads truer to this
+  persona than a decorative template; keep it closer to a research
+  notebook than a magazine spread.
 
 ## Shared closing notes
 
