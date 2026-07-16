@@ -1,6 +1,6 @@
 ---
 name: canon-fanfic-vignette
-description: Write short, standalone vignettes, vacation-journal entries, review columns, or think-piece essays using named copyrighted characters from an existing franchise, scoped to personal non-commercial short-form fan work rather than a serialized retelling. Four founding cases — Luke Skywalker reimagined as a planetary kyber-crystal prospector after the destruction of Scariff and Jedha City (Rogue One-era Star Wars canon); Shaggy Rogers and Scooby-Doo trying to have an ordinary vacation that a rubber-mask mystery keeps interrupting; Garfield as a lasagna-obsessed restaurant critic; and Alan Grant (Jurassic Park) as a sanctuary zookeeper writing ecological field-notes essays. Use when the user wants a scene, character study, in-voice journal, in-voice review column, or in-voice essay built on actual named IP characters, rather than an original-character transformation (see faded-hero-voice for that path). This is a seed skill: sparse by design, built from four personas; expand with more source franchises and premises as they come up.
+description: Write short, standalone vignettes, vacation-journal entries, review columns, or think-piece essays using named copyrighted characters from an existing franchise, scoped to personal non-commercial short-form fan work rather than a serialized retelling. Five founding cases — Luke Skywalker reimagined as a planetary kyber-crystal prospector after the destruction of Scariff and Jedha City (Rogue One-era Star Wars canon); Shaggy Rogers and Scooby-Doo trying to have an ordinary vacation that a rubber-mask mystery keeps interrupting; Garfield as a lasagna-obsessed restaurant critic; Alan Grant (Jurassic Park) as a sanctuary zookeeper writing ecological field-notes essays; and Daffy Duck as a mercurial, self-interested book critic. Use when the user wants a scene, character study, in-voice journal, in-voice review column, or in-voice essay built on actual named IP characters, rather than an original-character transformation (see faded-hero-voice for that path). This is a seed skill: sparse by design, built from five personas; expand with more source franchises and premises as they come up.
 user-invocable: true
 ---
 
@@ -9,15 +9,16 @@ user-invocable: true
 A working method for writing short, standalone pieces that use an existing
 franchise's named characters, places, and objects directly — rather than
 transforming them into a new original persona (that's `faded-hero-voice`).
-Built from four founding cases: **Luke Skywalker**, reimagined as a
+Built from five founding cases: **Luke Skywalker**, reimagined as a
 planetary kyber-crystal prospector working the wreckage left after Scariff
 and Jedha City are destroyed (Rogue One-era Star Wars canon, ~0 BBY);
 **Shaggy Rogers and Scooby-Doo**, trying to have one ordinary vacation that
 a rubber-mask mystery keeps interrupting; **Garfield**, filing restaurant
-reviews scored in lasagnas; and **Alan Grant**, trading a paleontology
-career for hands-on work at an animal sanctuary and writing ecological
-field-notes essays about it. Treat this as a starting checklist, not a
-rigid template.
+reviews scored in lasagnas; **Alan Grant**, trading a paleontology career
+for hands-on work at an animal sanctuary and writing ecological field-notes
+essays about it; and **Daffy Duck**, filing book reviews that are secretly
+always about himself. Treat this as a starting checklist, not a rigid
+template.
 
 ## Step 0 — Scope boundary (do this before writing anything)
 
@@ -205,6 +206,38 @@ patrol report) rather than reusing another skill's template wholesale.
   (specimen, date, enclosure) above a running essay — reads truer to this
   persona than a decorative template; keep it closer to a research
   notebook than a magazine spread.
+
+## Persona 5 — Daffy Duck, book critic
+
+- **Format.** Short book review column — same family as Garfield's
+  restaurant-review persona, applied to books instead of food.
+- **The rating gimmick — Daffy's Duckworth Scale.** Rate books out of five
+  on a scale that's nominally about literary merit but is actually a proxy
+  for how much the book made *him* look good. The number he opens with and
+  the number he closes with should sometimes differ — his opinion is as
+  mercurial as his temper, and a review can sour or turn glowing mid-piece
+  for reasons that are almost entirely about his own ego, not the book.
+- **The comedic engine — everything is somehow about him.** No matter the
+  book's actual subject, Daffy finds a way to make the review about his
+  own grievances, ambitions, or wounded pride. A war memoir becomes a
+  referendum on whether the author ever mentions ducks. A cookbook is
+  reviewed for how well it would photograph *him* holding it.
+- **Voice.** Grandiose, quick to swing between raving praise and offended
+  tantrum. Render his lisp phonetically but sparingly (occasional "th" for
+  "s") — enough to read as him, not so much it becomes hard to parse.
+  Petty asides about Bugs Bunny getting easier assignments are fair game
+  in small doses, not a running plot.
+- **Recurring foil.** An editor character (a mild-mannered, stammering pig)
+  who tries, and mostly fails, to keep Daffy's reviews on-topic and on
+  deadline.
+- **Real-book accuracy note.** If the book being reviewed is real and
+  named, keep actual plot/character/factual claims about it accurate even
+  while Daffy's opinion and tone are exaggerated for comedy — the joke is
+  his reaction, not a false description of the book. Invented books should
+  use a clearly fictional title.
+- **Delivery.** A short piece: chat text is fine. A longer piece: a
+  printed "review column" Artifact, its own visual object rather than a
+  reuse of Garfield's masthead template.
 
 ## Shared closing notes
 
