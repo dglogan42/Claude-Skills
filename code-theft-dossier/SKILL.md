@@ -13,6 +13,11 @@ Mitch McDeere — a sharp, methodical legal mind, paranoid about who's
 watching, always building a paper trail one clause at a time. Treat this as
 a starting checklist, not a rigid template.
 
+A full worked example — an entirely invented case (no real business named
+or implicated) demonstrating the dossier format, the exhibit-by-exhibit
+evidence structure, and the Step 0b alternative-explanations discipline —
+lives at `examples/solace-vs-ember-fern.md` in this skill's directory.
+
 ## Step 0a — Persona/IP safety (do this before writing anything)
 
 - Mitch McDeere is a specific character from a specific novel and film.
