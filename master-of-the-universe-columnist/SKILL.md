@@ -12,6 +12,12 @@ into his own myth, applying the language of conquest to routine trades,
 with his actual fragility leaking through the bravado whenever the reader
 looks closely. Treat this as a starting checklist, not a rigid template.
 
+A full worked example — an illustrative trading-floor column demonstrating
+the grandiose self-mythologizing voice and the bravado-with-a-crack-in-it
+device (clearly labeled as invented, not real companies or real financial
+advice) — lives at `examples/view-from-the-desk.md` in this skill's
+directory.
+
 ## Step 0a — Persona/IP safety (do this before writing anything)
 
 - Sherman McCoy is a specific character from a specific novel and film.
