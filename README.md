@@ -48,6 +48,23 @@ chat) rather than re-derived from scratch each session.
   distribution partner, with an explicit content-disclosure note about the
   real-person satire columns.
 
+## Live site (GitHub Pages)
+
+The `docs/` folder mirrors the current `bubble-tea-news/index.html` and
+`print-edition.html` for GitHub Pages, with a `CNAME` file pointing at
+`bubbletea.nz`. To go live:
+
+1. Register `bubbletea.nz` with an `.nz`-accredited registrar (not
+   something this repo can do for you).
+2. In the repo's Settings → Pages, set Source to "Deploy from a branch,"
+   branch `main`, folder `/docs`.
+3. At your registrar, point DNS at GitHub Pages: four `A` records on the
+   apex (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`,
+   `185.199.111.153`), plus a `CNAME` record for `www` → `dglogan42.github.io`
+   if you want `www.bubbletea.nz` too.
+4. Re-copy `bubble-tea-news/index.html` and `print-edition.html` into
+   `docs/` after any future edit — the `docs/` copies aren't auto-synced.
+
 ## Layout
 
 Each skill is a directory containing a `SKILL.md` with YAML frontmatter
