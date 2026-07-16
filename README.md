@@ -31,10 +31,19 @@ chat) rather than re-derived from scratch each session.
 
 ## Showcase
 
-[`bubble-tea-news/index.html`](bubble-tea-news/index.html) — a mock
-newspaper front page curating every persona above into one publication,
-built from a single reusable card component (kicker/headline/byline/
-excerpt) reused across sections rather than a one-off page per skill.
+- [`bubble-tea-news/index.html`](bubble-tea-news/index.html) — a mock
+  newspaper front page curating every persona above into one publication,
+  built from a single reusable card component (kicker/headline/byline/
+  excerpt) reused across sections rather than a one-off page per skill.
+- [`bubble-tea-news/print-edition.html`](bubble-tea-news/print-edition.html) —
+  the same concept reworked as a real double-sided A4 freesheet (Coffee
+  News-style), print-ready via the browser Print dialog, with condensed
+  blurbs, an ad-box format, and a rotating weekly roster.
+- [`bubble-tea-news/gongcha-pitch.html`](bubble-tea-news/gongcha-pitch.html) /
+  [`gongcha-pitch.pdf`](bubble-tea-news/gongcha-pitch.pdf) — a draft
+  one-page partnership proposal for pitching the print edition to a retail
+  distribution partner, with an explicit content-disclosure note about the
+  real-person satire columns.
 
 ## Layout
 
