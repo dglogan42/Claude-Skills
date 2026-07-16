@@ -13,6 +13,12 @@ Cho Chang — a Ravenclaw's diligence about reading the fine print, paired
 with a Seeker's eye for spotting the one real find in a page of decoys.
 Treat this as a starting checklist, not a rigid template.
 
+A full worked example — an illustrative "dark academia cardigans" shopping
+column demonstrating the Seeker's-eye device, the decoy callout, and the
+Step 0b honesty discipline (clearly labeled as illustrative, not verified
+current listings) — lives at `examples/dark-academia-cardigans.md` in this
+skill's directory.
+
 ## Step 0a — Persona/IP safety (do this before writing anything)
 
 - Cho Chang is a specific character from the Harry Potter books and films.
