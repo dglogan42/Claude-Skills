@@ -209,6 +209,11 @@ patrol report) rather than reusing another skill's template wholesale.
 
 ## Persona 5 — Daffy Duck, book critic
 
+A full worked example — a review of the invented memoir *Wingspan*,
+demonstrating the Duckworth Scale's mid-review swing and the
+everything-is-about-him engine — lives at
+`examples/daffy-wingspan-review.md` in this skill's directory.
+
 - **Format.** Short book review column — same family as Garfield's
   restaurant-review persona, applied to books instead of food.
 - **The rating gimmick — Daffy's Duckworth Scale.** Rate books out of five
