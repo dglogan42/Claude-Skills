@@ -1,18 +1,20 @@
 ---
 name: canon-fanfic-vignette
-description: Write short, standalone vignettes using named copyrighted characters, places, and terms from an existing franchise, scoped to personal non-commercial short-form fan work rather than a serialized retelling. Founding case — Luke Skywalker reimagined as a planetary kyber-crystal prospector combing the wreckage left after the destruction of Scariff and Jedha City (Rogue One-era Star Wars canon). Use when the user wants a scene or character study built on an actual named IP character in a specific canon setting, rather than an original-character transformation (see faded-hero-voice for that path). This is a seed skill: sparse by design, built from one persona; expand with more source franchises and premises as they come up.
+description: Write short, standalone vignettes, vacation-journal entries, or review columns using named copyrighted characters from an existing franchise, scoped to personal non-commercial short-form fan work rather than a serialized retelling. Three founding cases — Luke Skywalker reimagined as a planetary kyber-crystal prospector after the destruction of Scariff and Jedha City (Rogue One-era Star Wars canon); Shaggy Rogers and Scooby-Doo trying to have an ordinary vacation that a rubber-mask mystery keeps interrupting; and Garfield as a lasagna-obsessed restaurant critic. Use when the user wants a scene, character study, in-voice journal, or in-voice review column built on actual named IP characters, rather than an original-character transformation (see faded-hero-voice for that path). This is a seed skill: sparse by design, built from three personas; expand with more source franchises and premises as they come up.
 user-invocable: true
 ---
 
 # Canon Fan-Fiction Vignette (seed)
 
-A working method for writing short, standalone vignettes that use an existing
+A working method for writing short, standalone pieces that use an existing
 franchise's named characters, places, and objects directly — rather than
 transforming them into a new original persona (that's `faded-hero-voice`).
-Built from one founding case: **Luke Skywalker**, reimagined as a planetary
+Built from two founding cases: **Luke Skywalker**, reimagined as a planetary
 kyber-crystal prospector working the wreckage left after Scariff and Jedha
-City are destroyed (Rogue One-era Star Wars canon, ~0 BBY). Treat this as a
-starting checklist, not a rigid template.
+City are destroyed (Rogue One-era Star Wars canon, ~0 BBY); and **Shaggy
+Rogers and Scooby-Doo**, trying to have one ordinary vacation that a
+rubber-mask mystery keeps interrupting. Treat this as a starting checklist,
+not a rigid template.
 
 ## Step 0 — Scope boundary (do this before writing anything)
 
@@ -42,7 +44,7 @@ starting checklist, not a rigid template.
   that — pause and flag it as a different situation than a personal
   creative sketch.
 
-## Step 1 — The founding persona: Luke Skywalker, kyber prospector
+## Persona 1 — Luke Skywalker, kyber prospector
 
 - **Setting/timeline.** The narrow window right after Scariff and Jedha
   City are destroyed. In this reimagining, Luke doesn't immediately fall
@@ -71,7 +73,7 @@ starting checklist, not a rigid template.
   a tidy redemption beat or a reveal that spells out his destiny — the
   ache of not-knowing is the point.
 
-## Step 2 — Texture to draw on
+**Texture to draw on.**
 
 - Jedha's holy-city geography reduced to craters and ash; kyber's
   spiritual weight there (temple caretakers/guides, black-market runners
@@ -88,24 +90,84 @@ starting checklist, not a rigid template.
   with a patrol, one crystal that behaves strangely — rather than trying
   to cover his whole arc in a single piece.
 
-## Step 3 — Delivery
+**Delivery.** A short piece: return as chat text, no file needed. A longer
+or multi-vignette piece: write to a file in the project/scratchpad
+directory and offer to render as an Artifact — matching the visual
+treatment to the specific incident (a salvage manifest, a buyer's ledger, a
+patrol report) rather than reusing another skill's template wholesale.
 
-- A short piece: return as chat text, no file needed.
-- A longer or multi-vignette piece: write to a file in the
-  project/scratchpad directory and offer to render as an Artifact —
-  matching the visual treatment to the specific incident (a salvage
-  manifest, a buyer's ledger, a patrol report) rather than reusing another
-  skill's template wholesale.
-- If the user wants this developed into a full script, hand off to
-  `screenplay-creation`, re-running its own Step 0 IP conversation for the
-  longer form.
+## Persona 2 — Shaggy Rogers & Scooby-Doo, the forced-vacation mystery log
+
+- **Format.** Not a single-incident vignette like Luke's — a serialized
+  first-person travel-journal/diary, one "Day N" entry per beat, narrated
+  by Shaggy with Scooby "dictating" alongside him. Built and tested as a
+  beach-vacation log (Coral Key Reef Motel); the format generalizes to any
+  vacation setting.
+- **The recurring structural beat.** Each entry (or every other entry)
+  follows the same shape: an ordinary vacation activity &rarr; an
+  unsettling or spooky-seeming interruption &rarr; reluctant, comedic
+  investigation &rarr; an unmasking with a mundane, pettily-motivated
+  culprit (a financial scheme, insurance fraud, keeping tourists away —
+  never an actual supernatural payoff). Vary the pacing: not every entry
+  needs a full mystery-of-the-day; a "nothing happened, we don't trust it"
+  entry works well as a breather partway through.
+- **Voice — Shaggy.** Nervous, food-motivated, self-effacing, given to
+  "zoinks" / "like, man" filler without overusing it into a checklist.
+  He's self-aware about the pattern by now — he and Scooby both know how
+  this always goes — and light meta-commentary on the formula is a good
+  comic beat, used sparingly so it doesn't become the whole joke.
+- **Voice — Scooby.** Minimal, expressive, dropped R's ("Ruh-roh,"
+  "Rello"). Let him carry reaction beats and physical comedy rather than
+  long dialogue.
+- **Villain economics.** Always a person in a costume or rig, always a
+  mundane motive. Paraphrase the classic unmasking line ("and I would've
+  gotten away with it too...") rather than quoting it verbatim each time —
+  vary the wording so it reads as homage, not a lift.
+- **Delivery.** Works well as a scrapbook/postcard-styled Artifact — day
+  entries as taped-in journal pages, a running tally of mysteries
+  solved/snacks consumed/vacation-activities-not-yet-completed as a
+  structural device (it encodes the actual joke: the vacation itself keeps
+  losing to the mysteries).
+
+## Persona 3 — Garfield, food critic
+
+- **Format.** Short comedic restaurant/dish reviews narrated in first
+  person by Garfield — a "column" piece rather than a narrative scene.
+  Default to one review at a time; a multi-review "column" under one
+  masthead is fine for a longer piece — similar in spirit to
+  `tabloid-gossip-voice`'s column format, but with its own voice and
+  rating gimmick, not a reuse of that skill's persona.
+- **The rating gimmick.** Score everything against his own actual defining
+  trait rather than a generic star system — e.g. rating a dish or
+  restaurant in **lasagna** (out of five) — the joke being that nothing
+  ever beats lasagna and he says so anyway, every time, as if it were a
+  serious critical standard.
+- **Voice.** Mock-authoritative critic diction — "I have dined at
+  establishments that would reduce a Michelin inspector to tears" —
+  immediately undercut by pettiness (nap-friendliness of the seating,
+  contempt for anything with "diet" or "kale" on the menu, open hostility
+  toward Mondays as a reservation day).
+- **Recurring bits.** Jon as the hapless companion who pays and gets no
+  credit; Odie tagging along as a wordless comic prop (tripping, drooling,
+  blamed for messes that weren't his); genuine but rarely-shown affection
+  for Jon breaking through the sarcasm for at most one line per piece.
+- **Delivery.** A short piece: chat text is fine. A longer piece: a
+  printed "review column" Artifact (masthead, a star-or-lasagna rating
+  badge, a pull-quote) suits this better than a narrative-vignette
+  template — its own visual object, not a reuse of Luke's field-log or
+  Shaggy's scrapbook templates.
+
+## Shared closing notes
+
+If the user wants any persona here developed into a full script, hand off
+to `screenplay-creation`, re-running its own Step 0 IP conversation for the
+longer form.
 
 ## To expand this skill later
 
 Add more founding personas as new franchises or characters come up, each
-getting its own Step 1 block (setting, carried-over background, the
-piece's dramatic engine, voice, emotional register) rather than merging
-distinct source material into one generic template. If a second scope tier
-is ever explicitly wanted (e.g. approval to go past the vignette cap for a
-specific request), add it as a variant under Step 0 rather than loosening
-the default cap.
+getting its own Persona block (format, voice, the piece's comic or dramatic
+engine, delivery) rather than merging distinct source material into one
+generic template. If a second scope tier is ever explicitly wanted (e.g.
+approval to go past the vignette cap for a specific request), add it as a
+variant under Step 0 rather than loosening the default cap.
