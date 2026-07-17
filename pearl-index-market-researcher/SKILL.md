@@ -1,6 +1,6 @@
 ---
 name: pearl-index-market-researcher
-description: Write consumer-insights market-research reports (and matching ad creative) on bubble tea patron behavior for Bubble Tea News, narrated by an original persona, Priya Anand — founder of a boutique research firm, The Pearl Index — who applies real pollster/market-research rigor (sample sizes, margin of error, cross-tabs, churn, named patron segments) to sweetness-level loyalty and pearl-to-milk ratios with total seriousness. Use when the user wants a "market research," "consumer survey," "patron trends," or "industry insights" piece for the Bubble Tea News, or ad-box creative sold off the back of that research, delivered as an in-voice analyst report rather than a plain trend list. This is a seed skill: sparse by design, built from one persona; expand with more research formats (focus-group transcripts, seasonal forecasts) as they come up.
+description: Write consumer-insights market-research reports (patron cross-tabs, a ranked flavor-vote leaderboard, and matching ad creative) on bubble tea patron behavior for Bubble Tea News, narrated by an original persona, Priya Anand — founder of a boutique research firm, The Pearl Index — who applies real pollster/market-research rigor (sample sizes, margin of error, cross-tabs, churn, named patron segments) to sweetness-level loyalty, pearl-to-milk ratios, and best-flavor voting with total seriousness. Use when the user wants a "market research," "consumer survey," "patron trends," "best flavors vote/ranking," or "industry insights" piece for the Bubble Tea News, or ad-box creative sold off the back of that research, delivered as an in-voice analyst report rather than a plain trend list. This is a seed skill: sparse by design, built from one persona; expand with more research formats (focus-group transcripts, seasonal forecasts) as they come up.
 user-invocable: true
 ---
 
@@ -17,8 +17,11 @@ not a rigid template.
 A full worked example — an illustrative "Brown Sugar Loyalists vs. Taro
 Swing Patrons" report demonstrating the methodology-blurb/cross-tab
 structure, the segment-spotlight device, and the honest-caveat beat — lives
-at `examples/brown-sugar-loyalty-report.md` in this skill's directory.
-Three matching ad-creative SVGs generated from that same research live at
+at `examples/brown-sugar-loyalty-report.md` in this skill's directory. A
+second worked example, a ranked "Best Flavors" patron vote demonstrating
+the Step 2b flavor-leaderboard format and the most-polarizing-flavor
+device, lives at `examples/flavor-leaderboard.md`. Three matching
+ad-creative SVGs generated from that same research live at
 `examples/ads/milkwood-tea-co.svg`, `examples/ads/nine-cups-tea-bar.svg`,
 and `examples/ads/steep-and-sorted.svg`.
 
@@ -104,6 +107,28 @@ steps in `seekers-eye-shopper` and `master-of-the-universe-columnist`.
   what keeps the confidence from reading as hollow.
 - **Analyst takeaway.** One plain-English recommendation line, ideally
   landing on Desmond wanting a simpler answer than he got.
+
+## Step 2b — Flavor leaderboard (patron vote)
+
+A recurring format alongside the cross-tab report: a ranked patron vote on
+best tea flavors, run and published the same way a pollster reports a
+primary. A full worked example lives at
+`examples/flavor-leaderboard.md` in this skill's directory.
+
+- **Methodology line**, same as Step 2 (fieldwork window, n=, method —
+  ballot left at the counter, one flavor per patron, no ranked-choice
+  unless the piece specifically wants to show off a tiebreak).
+- **Ranked list**, top 3–5 flavors by vote share, each with its share and
+  one line on who's driving it (tie back to a Step 1 segment where it
+  fits naturally — Brown Sugar Loyalists' turnout, say).
+- **Most polarizing flavor.** Call out the flavor with the widest split
+  between segments (loved by one named segment, bottom-ranked by another)
+  — this is the cross-tab instinct again, applied to a vote instead of a
+  behavior stat, and it's usually the more interesting finding than the
+  winner.
+- **Honest limitation and analyst takeaway**, same as Step 2 — a ballot-box
+  vote has its own real caveat (ballot-stuffing risk, a regular voting
+  twice, low turnout from once-a-month patrons) worth naming plainly.
 
 ## Step 3 — Ad creative (SVG)
 
