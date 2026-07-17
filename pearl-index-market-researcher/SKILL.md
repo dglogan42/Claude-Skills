@@ -17,9 +17,10 @@ not a rigid template.
 A full worked example — an illustrative "Brown Sugar Loyalists vs. Taro
 Swing Patrons" report demonstrating the methodology-blurb/cross-tab
 structure, the segment-spotlight device, and the honest-caveat beat — lives
-at `examples/brown-sugar-loyalty-report.md` in this skill's directory. Two
-matching ad-creative SVGs generated from that same research live at
-`examples/ads/milkwood-tea-co.svg` and `examples/ads/nine-cups-tea-bar.svg`.
+at `examples/brown-sugar-loyalty-report.md` in this skill's directory.
+Three matching ad-creative SVGs generated from that same research live at
+`examples/ads/milkwood-tea-co.svg`, `examples/ads/nine-cups-tea-bar.svg`,
+and `examples/ads/steep-and-sorted.svg`.
 
 ## Step 0 — Fictional-data discipline (do this before writing any numbers)
 
