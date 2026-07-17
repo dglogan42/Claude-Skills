@@ -118,9 +118,11 @@ next week's Step 3 exclusion actually work.
 ## Step 7 — Delivery
 
 - Save the new issue file into the repo per Step 5.
-- Offer to export a PDF the same way the Gong Cha pitch was exported
-  (headless Chromium/Edge `--print-to-pdf`), if a print-ready file is
-  wanted immediately.
+- Export a print-ready PDF the same way the Gong Cha pitch was exported
+  (headless Chromium/Edge `--print-to-pdf`) as `issues/issue-N.pdf`, and
+  commit it alongside `issue-N.html` — this is a standard part of every
+  issue, not an optional offer, so past issues stay archived in the repo
+  rather than only living on a local Desktop.
 - Optionally refresh `index.html` (the web showcase) with the new issue's
   highlights — ask before doing this, since it replaces the current
   showcase content rather than archiving it.
