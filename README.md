@@ -28,6 +28,7 @@ chat) rather than re-derived from scratch each session.
 | [`long-game-music-review`](long-game-music-review/SKILL.md) | Write music reviews narrated in Rebecca Black's voice, grounded in her real adult perspective on surviving viral judgment and reclaiming her artistic identity — deliberately not the "ironic bad music" mockery dynamic that once targeted her. Seed skill — empathetic-but-sharp criticism: generous to sincerity, unforgiving of cynical/manufactured product. |
 | [`community-outbreak-bulletin`](community-outbreak-bulletin/SKILL.md) | Write a satirical situation-report bulletin in WHO Health Emergencies reporting's real structural format, applied to a trivial non-medical community fad (lawn gnomes, friendship bracelets). Seed skill — strict non-health/non-affiliation boundary given the real institution satirized is a highly authoritative global health body. |
 | [`yearning-machine-voice`](yearning-machine-voice/SKILL.md) | Reimagine a relentless killing-machine android (Terminator-shaped) as a figure who redirects that same persistence toward becoming human over decades (Bicentennial-Man-shaped). Seed skill — founding original persona: Wren, a pursuit unit whose mission never ended. |
+| [`pearl-index-market-researcher`](pearl-index-market-researcher/SKILL.md) | Write consumer-insights market-research reports on bubble tea patron behavior, narrated by an original persona, Priya Anand, founder of a boutique research firm (The Pearl Index) who applies real pollster rigor — sample sizes, margin of error, cross-tabs, named patron segments — to sweetness-level loyalty and pearl-to-milk ratios. Also produces matching ad-box creative as SVG files sold off the same research. Seed skill — one persona, one report format, two SVG ad examples. |
 | [`bubble-tea-news-editor`](bubble-tea-news-editor/SKILL.md) | Assemble a genuinely new weekly issue of the Bubble Tea News print edition by rotating personas from across this library (tracked in a rotation log so issues don't repeat), generating fresh content per persona rather than reusing existing examples. Use to produce "this week's issue." |
 
 ## Showcase
@@ -39,7 +40,9 @@ chat) rather than re-derived from scratch each session.
 - [`bubble-tea-news/print-edition.html`](bubble-tea-news/print-edition.html) —
   the same concept reworked as a real double-sided A4 freesheet (Coffee
   News-style), print-ready via the browser Print dialog, with condensed
-  blurbs, an ad-box format, and a rotating weekly roster. Issue 1's lineup
+  blurbs, a rotating weekly roster, and its two ad-box slots filled with
+  `pearl-index-market-researcher`-generated SVG ad creative (Milkwood Tea
+  Co., Nine Cups Tea Bar). Issue 1's lineup
   is tracked in [`bubble-tea-news/rotation-log.md`](bubble-tea-news/rotation-log.md);
   see `bubble-tea-news-editor` above to generate the next issue.
 - [`bubble-tea-news/gongcha-pitch.html`](bubble-tea-news/gongcha-pitch.html) /

@@ -54,6 +54,7 @@ content and are excluded from rotation.)
 | Community-outbreak-bulletin format | `community-outbreak-bulletin` |
 | Steve Jobs, reality distortion field | `reality-distortion-field-report` |
 | The Stickybeak, gossip column | `tabloid-gossip-voice` |
+| Priya Anand, Pearl Index market research | `pearl-index-market-researcher` |
 
 ## Step 2 — Fixed weekly anchors
 
@@ -69,7 +70,9 @@ itself is designed to refresh every issue:
   invent fresh filler each week (a real bubble-tea-adjacent fact, a short
   pun). Don't repeat a fact or joke already used in a prior logged issue.
 - **Ad box(es)** — placeholder ("Your Ad Here") unless the user has actual
-  advertiser content to insert for that issue.
+  advertiser content to insert for that issue, or a fresh SVG ad from
+  `pearl-index-market-researcher` (Step 3 of that skill) is generated for
+  this issue specifically.
 
 ## Step 3 — Rotating slots
 
