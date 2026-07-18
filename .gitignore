@@ -11,3 +11,21 @@ desktop.ini
 # Logs / scratch
 *.log
 .tmp/
+*-test.pdf
+*.scratch.*
+
+# Python (PDF export tooling)
+__pycache__/
+*.pyc
+.venv/
+
+# Node
+node_modules/
+
+# Local browser profiles used for headless PDF export
+edge-print-profile/
+chrome-print-profile/
+
+# Secrets
+.env
+.env.local

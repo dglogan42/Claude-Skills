@@ -9,6 +9,7 @@ chat) rather than re-derived from scratch each session.
 | Skill | Description |
 |---|---|
 | [`screenplay-creation`](screenplay-creation/SKILL.md) | Write an original screenplay from a premise, especially found-footage / first-person investigation horror (Blair Witch-style). Seed skill — sparse by design, meant to be expanded with more sub-genres and formatting presets. |
+| [`promo-shoot-brief`](promo-shoot-brief/SKILL.md) | Turn a movement sequence (yoga routine, dance warm-up, choreography notes) into a generic photo/video shoot brief with a shot list — framing, lighting, direction, hold times. Not persona-voiced; a straight creative-brief utility. |
 | [`tabloid-gossip-voice`](tabloid-gossip-voice/SKILL.md) | Rewrite or draft text in the voice of an anonymous "kiss and tell" tabloid gossip columnist. Includes a reusable [tabloid front-page template](tabloid-gossip-voice/templates/tabloid-front-page.html) for Artifact output. Seed skill — built from one persona (The Stickybeak) and one style-transfer pass. |
 | [`faded-hero-voice`](faded-hero-voice/SKILL.md) | Reimagine a childhood fantasy/adventure hero decades later as a burned-out, deadbeat-adult version of themselves. Seed skill — built from one persona (Sebastian, a NeverEnding Story/Gumball's-dad blend: divorced, unemployed, estranged from his kids, obsessively doing laundry). |
 | [`canon-fanfic-vignette`](canon-fanfic-vignette/SKILL.md) | Write short, standalone vignettes/journals/columns/essays using named characters from an existing franchise, scoped to personal non-commercial fan work rather than a serialized retelling. Seed skill — five personas: Luke Skywalker (kyber prospector), Shaggy & Scooby (forced-vacation mystery log), Garfield (food critic), Alan Grant (sanctuary zookeeper essayist), Daffy Duck (book critic). |
@@ -29,6 +30,8 @@ chat) rather than re-derived from scratch each session.
 | [`community-outbreak-bulletin`](community-outbreak-bulletin/SKILL.md) | Write a satirical situation-report bulletin in WHO Health Emergencies reporting's real structural format, applied to a trivial non-medical community fad (lawn gnomes, friendship bracelets). Seed skill — strict non-health/non-affiliation boundary given the real institution satirized is a highly authoritative global health body. |
 | [`yearning-machine-voice`](yearning-machine-voice/SKILL.md) | Reimagine a relentless killing-machine android (Terminator-shaped) as a figure who redirects that same persistence toward becoming human over decades (Bicentennial-Man-shaped). Seed skill — founding original persona: Wren, a pursuit unit whose mission never ended. |
 | [`pearl-index-market-researcher`](pearl-index-market-researcher/SKILL.md) | Write consumer-insights market-research reports on bubble tea patron behavior, narrated by an original persona, Priya Anand, founder of a boutique research firm (The Pearl Index) who applies real pollster rigor — sample sizes, margin of error, cross-tabs, named patron segments — to sweetness-level loyalty and pearl-to-milk ratios. Also produces matching ad-box creative as SVG files sold off the same research. Seed skill — one persona, one report format, two SVG ad examples. |
+| [`kate-rodgers-film-review`](kate-rodgers-film-review/SKILL.md) | Write film reviews narrated by an original persona, Kate Rodgers, a former multiplex concessions/usher turned critic who scores every review on an inverted "Refill Rating" — more popcorn refills during a screening means a worse movie; zero refills is her highest praise. Seed skill — one persona, one rating device. |
+| [`menace-watch-editorial`](menace-watch-editorial/SKILL.md) | Write "Menace Watch," the Bubble Tea News standing editorial column, narrated by editor-in-chief Gordon Slate (a J. Jonah Jameson-shaped persona) who is instantly, sincerely convinced any masked/costumed local figure is a dangerous vigilante menace — always harmless, never once caught by Gordon. Runs monthly (not weekly) within the paper. Seed skill — one persona, one column format. |
 | [`bubble-tea-news-editor`](bubble-tea-news-editor/SKILL.md) | Assemble a genuinely new weekly issue of the Bubble Tea News print edition by rotating personas from across this library (tracked in a rotation log so issues don't repeat), generating fresh content per persona rather than reusing existing examples. Use to produce "this week's issue." |
 
 ## Showcase
@@ -39,12 +42,20 @@ chat) rather than re-derived from scratch each session.
   excerpt) reused across sections rather than a one-off page per skill.
 - [`bubble-tea-news/print-edition.html`](bubble-tea-news/print-edition.html) —
   the same concept reworked as a real double-sided A4 freesheet (Coffee
-  News-style), print-ready via the browser Print dialog, with condensed
-  blurbs, a rotating weekly roster, and its two ad-box slots filled with
-  `pearl-index-market-researcher`-generated SVG ad creative (Milkwood Tea
-  Co., Nine Cups Tea Bar). Issue 1's lineup
-  is tracked in [`bubble-tea-news/rotation-log.md`](bubble-tea-news/rotation-log.md);
-  see `bubble-tea-news-editor` above to generate the next issue.
+  News-style), print-ready via the browser Print dialog (A4, no margins,
+  flip on the long edge for double-sided). This file always mirrors
+  whichever issue's in-fiction dateline matches the real calendar date —
+  see below — not necessarily the newest one assembled.
+- [`bubble-tea-news/issues/`](bubble-tea-news/issues/) — the full archive
+  (`issue-1.html` … `issue-N.html`, each with a matching `.pdf`), one
+  weekly issue per file, dated 17 July 2026 + 7 days per issue. Full
+  rosters and rotation history are tracked in
+  [`bubble-tea-news/rotation-log.md`](bubble-tea-news/rotation-log.md); see
+  `bubble-tea-news-editor` above to generate the next issue. The archive
+  can run ahead of real time (issues assembled before their own week
+  arrives); the live showcase (`index.html`/`print-edition.html`) does
+  not — it only ever shows the issue matching today's date, so future
+  issues aren't spoiled before their time.
 - [`bubble-tea-news/gongcha-pitch.html`](bubble-tea-news/gongcha-pitch.html) /
   [`gongcha-pitch.pdf`](bubble-tea-news/gongcha-pitch.pdf) — a draft
   one-page partnership proposal for pitching the print edition to a retail
@@ -67,6 +78,9 @@ The `docs/` folder mirrors the current `bubble-tea-news/index.html` and
    if you want `www.bubbletea.nz` too.
 4. Re-copy `bubble-tea-news/index.html` and `print-edition.html` into
    `docs/` after any future edit — the `docs/` copies aren't auto-synced.
+   Only advance either copy to a later issue once that issue's own
+   dateline has actually arrived (see the Showcase section above) —
+   don't just copy over the newest one in `issues/`.
 
 ## Layout
 
