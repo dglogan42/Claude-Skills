@@ -55,6 +55,7 @@ content and are excluded from rotation.)
 | Steve Jobs, reality distortion field | `reality-distortion-field-report` |
 | The Stickybeak, gossip column | `tabloid-gossip-voice` |
 | Priya Anand, Pearl Index market research | `pearl-index-market-researcher` |
+| Kate Rodgers, film review (Refill Rating) | `kate-rodgers-film-review` |
 
 ## Step 2 — Fixed weekly anchors
 
