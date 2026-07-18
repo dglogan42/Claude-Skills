@@ -70,18 +70,32 @@ recognizable creative property.
 
 ## Step 2 — Format
 
-A single panel:
-1. **Scene description** (1–2 sentences, present tense, deadpan): what's
-   visible in the panel.
-2. **Caption or dialogue line**: the joke itself, usually short.
+A single panel, rendered as an actual (if deliberately crude) drawing, not
+just described:
 
-Example shape (illustrative, not to be reused verbatim):
+1. **The image.** A simple schematic SVG — stroke-only line art, matching
+   this paper's existing icon-circle convention (`stroke="currentColor"`,
+   thin stroke-width, minimal filled dots for eyes/pearls/small details,
+   no gradients or cross-hatching). Frame it in a plain rectangular
+   border, same as a printed panel. Keep the element count low — a dozen
+   or so paths/shapes is usually enough to read the gag; resist adding
+   detail for its own sake. This is the default delivery now — write the
+   SVG, don't just prose-describe the scene, unless the user explicitly
+   asks for text only.
+2. **Caption or dialogue line**: the joke itself, usually short, set below
+   the image.
 
-> *Two tapioca pearls sit at the bottom of an otherwise empty cup, one
-> wearing tiny reading glasses, reviewing a single sheet of paper headed
-> "Exit Interview."*
->
+A prose "scene description" is only a fallback for chat-only delivery
+where no image/file output is possible — prefer the SVG whenever the
+output medium supports it (an issue page, an Artifact, a written file).
+
+Example caption shape (illustrative, not to be reused verbatim):
+
 > **"Look, it's not you. It's the straw."**
+>
+> *(panel: two tapioca pearls at the bottom of an otherwise empty cup, one
+> wearing tiny reading glasses, reviewing a sheet of paper headed "Exit
+> Interview")*
 
 Byline convention: *"The Boba Side" — in the style of Gary Larson's
 one-panel gag cartoons.*
