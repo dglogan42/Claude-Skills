@@ -74,6 +74,19 @@ itself is designed to refresh every issue:
   `pearl-index-market-researcher` (Step 3 of that skill) is generated for
   this issue specifically.
 
+## Step 2b — Monthly anchor
+
+- **Menace Watch (editor's column)** — `menace-watch-editorial`, but
+  **monthly, not weekly**: Gordon Slate, the paper's own editor-in-chief,
+  runs a short "[masked figure]: Hero or Menace?" column roughly once
+  every 4 weekly issues, not every issue. Debuted Issue 3. Before
+  including him, check the rotation log for which issue he last ran in —
+  if it's been fewer than ~4 issues, leave this slot to a rotating persona
+  instead. When he is due, pick a fresh target for that issue (ideally one
+  that cross-references something else already in that issue) and follow
+  that skill's own Step 0 boundary: the target's anonymity must always be
+  trivial/comedic, never a stand-in for a real reason to conceal identity.
+
 ## Step 3 — Rotating slots
 
 The template has roughly 8–10 non-anchor content slots across both pages.
