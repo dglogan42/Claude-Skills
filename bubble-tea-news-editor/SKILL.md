@@ -56,6 +56,7 @@ content and are excluded from rotation.)
 | The Stickybeak, gossip column | `tabloid-gossip-voice` |
 | Priya Anand, Pearl Index market research | `pearl-index-market-researcher` |
 | Kate Rodgers, film review (Refill Rating) | `kate-rodgers-film-review` |
+| Freya Wilcox, Design Desk (cat/boba correlation) | `design-desk-dispatch` |
 
 ## Step 2 — Fixed weekly anchors
 
