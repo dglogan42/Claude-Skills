@@ -141,10 +141,11 @@ a standalone ad mockup), not just a report.
   report it's paired with (or invent a fresh, internally-consistent one) —
   the ad should read as sold off real Pearl Index fieldwork, not generic
   copy.
-- **Size for the slot.** `bubble-tea-news/print-edition.html`'s `.ad-box`
-  cells sit in a 3-column grid roughly 58mm wide; build each SVG at a
-  `viewBox` around `0 0 240 150` (~3:2) so it scales cleanly into that
-  column without the template needing layout changes.
+- **Size for the slot.** The print template's (`print-edition.html`, in the
+  separate `dglogan42/bubble-tea-news` repo) `.ad-box` cells sit in a
+  3-column grid roughly 58mm wide; build each SVG at a `viewBox` around
+  `0 0 240 150` (~3:2) so it scales cleanly into that column without the
+  template needing layout changes.
 - **Visual formula.** One invented fictional advertiser (never a real
   chain's real name/logo, per Step 0), a small chart motif (bar or donut)
   referencing a named segment, a bold tagline, and a compact "Pearl Index

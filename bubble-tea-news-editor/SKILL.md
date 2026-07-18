@@ -14,14 +14,28 @@ a rigid template.
 
 ## Step 0 — Orient before writing anything
 
+- The published product lives in its own repo,
+  [`dglogan42/bubble-tea-news`](https://github.com/dglogan42/bubble-tea-news)
+  — not in this skills library. Expect it checked out as a sibling
+  directory next to this repo (`../bubble-tea-news/`); if it isn't present
+  locally, clone it before starting an issue.
 - The print template lives at `../bubble-tea-news/print-edition.html` (two
   A4 sheets, front/back, `@page A4` print CSS). Read it before starting an
-  issue — it defines the exact slot structure this skill fills.
+  issue — it defines the exact slot structure this skill fills. Note this
+  file is calendar-locked to whichever issue's in-fiction dateline matches
+  today's real date — don't advance it past that, even if newer issues
+  already exist in `issues/` (see that repo's own rotation-log.md for the
+  standing policy).
 - The rotation log lives at `../bubble-tea-news/rotation-log.md`. Read it
   first to see which personas ran in the last two issues; the whole point
   of this skill is that the lineup changes week to week.
 - The web showcase (`../bubble-tea-news/index.html`) is a separate,
   longer-form artifact — updating it is optional per issue, not required.
+  It's also calendar-locked, same as the print template.
+- New persona debuts (an original in-house character, not tied to an
+  existing franchise skill) get their own `SKILL.md` added to this
+  library, same as any other persona — only the assembled issue content
+  and the rotation log live in the separate repo.
 
 ## Step 1 — The roster
 

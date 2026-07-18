@@ -37,51 +37,22 @@ chat) rather than re-derived from scratch each session.
 
 ## Showcase
 
-- [`bubble-tea-news/index.html`](bubble-tea-news/index.html) — a mock
-  newspaper front page curating every persona above into one publication,
-  built from a single reusable card component (kicker/headline/byline/
-  excerpt) reused across sections rather than a one-off page per skill.
-- [`bubble-tea-news/print-edition.html`](bubble-tea-news/print-edition.html) —
-  the same concept reworked as a real double-sided A4 freesheet (Coffee
-  News-style), print-ready via the browser Print dialog (A4, no margins,
-  flip on the long edge for double-sided). This file always mirrors
-  whichever issue's in-fiction dateline matches the real calendar date —
-  see below — not necessarily the newest one assembled.
-- [`bubble-tea-news/issues/`](bubble-tea-news/issues/) — the full archive
-  (`issue-1.html` … `issue-N.html`, each with a matching `.pdf`), one
-  weekly issue per file, dated 17 July 2026 + 7 days per issue. Full
-  rosters and rotation history are tracked in
-  [`bubble-tea-news/rotation-log.md`](bubble-tea-news/rotation-log.md); see
-  `bubble-tea-news-editor` above to generate the next issue. The archive
-  can run ahead of real time (issues assembled before their own week
-  arrives); the live showcase (`index.html`/`print-edition.html`) does
-  not — it only ever shows the issue matching today's date, so future
-  issues aren't spoiled before their time.
-- [`bubble-tea-news/gongcha-pitch.html`](bubble-tea-news/gongcha-pitch.html) /
-  [`gongcha-pitch.pdf`](bubble-tea-news/gongcha-pitch.pdf) — a draft
-  one-page partnership proposal for pitching the print edition to a retail
-  distribution partner, with an explicit content-disclosure note about the
-  real-person satire columns.
+The actual Bubble Tea News print edition, issue archive, and website build
+moved out of this repo into
+[`dglogan42/bubble-tea-news`](https://github.com/dglogan42/bubble-tea-news)
+(full commit history preserved via `git filter-repo`), so that the skills
+library and the published product it feeds can be versioned and released
+independently. `bubble-tea-news-editor` (and any persona skill contributing
+content to an issue) now assumes that repo is checked out as a sibling
+directory — see that skill's Step 0 for the exact layout it expects.
 
 ## Live site (GitHub Pages)
 
-The `docs/` folder mirrors the current `bubble-tea-news/index.html` and
-`print-edition.html` for GitHub Pages, with a `CNAME` file pointing at
-`bubbletea.nz`. To go live:
-
-1. Register `bubbletea.nz` with an `.nz`-accredited registrar (not
-   something this repo can do for you).
-2. In the repo's Settings → Pages, set Source to "Deploy from a branch,"
-   branch `main`, folder `/docs`.
-3. At your registrar, point DNS at GitHub Pages: four `A` records on the
-   apex (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`,
-   `185.199.111.153`), plus a `CNAME` record for `www` → `dglogan42.github.io`
-   if you want `www.bubbletea.nz` too.
-4. Re-copy `bubble-tea-news/index.html` and `print-edition.html` into
-   `docs/` after any future edit — the `docs/` copies aren't auto-synced.
-   Only advance either copy to a later issue once that issue's own
-   dateline has actually arrived (see the Showcase section above) —
-   don't just copy over the newest one in `issues/`.
+The live site now deploys from `dglogan42/bubble-tea-news`'s own `docs/`
+folder, with the `bubbletea.nz` custom domain and DNS records pointed
+there. This repo's `docs/` folder is kept only as a redirect stub, in case
+anything still links to the old GitHub Pages default URL
+(`dglogan42.github.io/Claude-Skills`) — it forwards to bubbletea.nz.
 
 ## Layout
 
