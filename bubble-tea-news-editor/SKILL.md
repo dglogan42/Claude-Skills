@@ -71,6 +71,7 @@ content and are excluded from rotation.)
 | Priya Anand, Pearl Index market research | `pearl-index-market-researcher` |
 | Kate Rodgers, film review (Refill Rating) | `kate-rodgers-film-review` |
 | Freya Wilcox, Design Desk (cat/boba correlation) | `design-desk-dispatch` |
+| The Boba Side, single-panel gag cartoon (Larson-style parody) | `the-boba-side-cartoon` |
 
 ## Step 2 — Fixed weekly anchors
 
