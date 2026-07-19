@@ -73,6 +73,7 @@ content and are excluded from rotation.)
 | Freya Wilcox, Design Desk (cat/boba correlation) | `design-desk-dispatch` |
 | The Boba Side, single-panel gag cartoon (Larson-style parody) | `the-boba-side-cartoon` |
 | Skeletor, "In Memoriam" obituary column | `skeletor-obituary-column` |
+| Horatio McCallister, "Ask the Captain" personals column | `horatio-mccallister-personals-column` |
 
 ## Step 2 — Fixed weekly anchors
 
