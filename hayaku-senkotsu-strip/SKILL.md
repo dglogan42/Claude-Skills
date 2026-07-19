@@ -98,8 +98,44 @@ Example shape (illustrative, not to be reused verbatim):
   later issue can continue the story rather than restart it.
 - As a standalone piece: chat text is fine for a single strip.
 
+## Step 4 — Optional strip-index dashboard (PSWriteHTML)
+
+Hayaku stays prose-only — `PSWriteHTML` doesn't add drawing capability
+here. Checked against the installed v1.41.0: its ~200 cmdlets cover
+tables, ApexCharts, vis.js diagrams, calendars, QR codes, etc.; there is
+no shape/line/canvas-drawing surface (a `New-HTMLCanvas` cmdlet does
+*not* exist in this module — a snippet assuming it does will fail with
+`term not recognized`). What it's actually useful for is a continuity
+dashboard: a table plus timeline of strips run so far, so a later issue
+can pick the match/season arc back up correctly.
+
+```powershell
+Import-Module PSWriteHTML
+$StripLog = @(
+    [PSCustomObject]@{ Issue = 9; Title = "Rotation Call"; ArcBeat = "Regional prelims, game 1" }
+    [PSCustomObject]@{ Issue = 8; Title = "Second Serve";  ArcBeat = "Regional prelims, warmup" }
+)
+New-HTML -Title "Hayaku — Strip Index" -FilePath "hayaku-index.html" -ShowHTML {
+    New-HTMLSection -HeaderText "Strips run so far" {
+        New-HTMLTable -DataTable $StripLog
+    }
+    New-HTMLTimeline {
+        foreach ($s in $StripLog) {
+            New-HTMLTimelineItem -HeadingText $s.Title -Text $s.ArcBeat
+        }
+    }
+}
+```
+
+Note `New-HTMLTimelineItem` takes `-HeadingText`, not `-Title` — verify
+current parameter names with `Get-Command <name> -Syntax` before reuse,
+since a plausible-looking guess (`-Title`) fails silently into a warning
+rather than a hard error. This dashboard is a bookkeeping aid for
+tracking the arc across issues, not part of the delivered strip.
+
 ## To expand this skill later
 
 Add a running cast list and a match/season arc tracker as strips
 accumulate, so continuity holds issue to issue — mirroring how
-`bubble-tea-news-editor` tracks its own rotation log.
+`bubble-tea-news-editor` tracks its own rotation log. The Step 4
+dashboard above is a starting point for that tracker.

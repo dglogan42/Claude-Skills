@@ -139,6 +139,34 @@ reapplying more than once when an issue file's CSS diverged.
 Byline convention: *"The Boba Side" — a homage to Gary Larson's Far Side
 sensibility, drawn simple, not an attempt at his actual artwork.*
 
+## Step 5 — Optional premise-history dashboard (PSWriteHTML)
+
+pycairo stays the only renderer for the artwork itself — `PSWriteHTML`
+has no shape/canvas-drawing API (verified against the installed v1.41.0:
+its ~200 cmdlets cover tables, ApexCharts, vis.js diagrams, calendars,
+QR codes; nothing draws a line or a circle). Its actual use here is a
+plain continuity dashboard, not art: a table of past premises so a new
+panel doesn't quietly reuse one, per Step 4's "don't reuse a gag" rule.
+
+```powershell
+Import-Module PSWriteHTML
+$PremiseLog = @(
+    [PSCustomObject]@{ Issue = 9; Premise = "Loyalty card negotiates its own stamp count"; Device = "deadpan negotiation" }
+    [PSCustomObject]@{ Issue = 8; Premise = "Barista explains foam physics to a bored regular"; Device = "blackboard expert" }
+)
+New-HTML -Title "The Boba Side — Premise Log" -FilePath "boba-side-index.html" -ShowHTML {
+    New-HTMLSection -HeaderText "Panels run so far" {
+        New-HTMLTable -DataTable $PremiseLog
+    }
+}
+```
+
+`New-HTMLTable` and `New-HTMLSection` are real, tested cmdlets (confirm
+current parameter names with `Get-Command <name> -Syntax` before reuse —
+`New-HTMLTimelineItem` turned out to take `-HeadingText`, not `-Title`,
+despite looking like it should). This is a bookkeeping aid, generated on
+demand when checking for premise reuse — not part of the delivered issue.
+
 ## To expand this skill later
 
 Build a small reusable library of pycairo drawing primitives (a stock
