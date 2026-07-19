@@ -1,120 +1,121 @@
 ---
 name: the-boba-side-cartoon
-description: Write "The Boba Side" — Bubble Tea News's single-panel gag cartoon slot, narrated as a clearly-labeled parody/homage to Gary Larson's absurdist one-panel style (real, living cartoonist, best known for The Far Side) applied to bubble tea premises. Produces a scene description plus caption in place of actual artwork, since there's no image-generation tool available and reproducing Larson's specific rendering style would be a separate risk on top of the joke. Use when assembling a Bubble Tea News issue that wants a cartoon slot, or whenever the user wants a one-panel absurdist gag cartoon written up. This is a seed skill: sparse by design, built from one persona and one format; expand with more gag premises as they come up.
+description: Write "The Boba Side" — Bubble Tea News's single-panel gag cartoon slot — as a structured anime/manga-style image-generation prompt (six-part formula) plus caption, applying otaku-culture and bubble-tea-meme sensibilities to original characters. There's no image-generation tool in this workflow, so the deliverable is the prompt script itself, for the user to run through an external generator — not a rendered image. Use when assembling a Bubble Tea News issue that wants a cartoon slot, or whenever the user wants a one-panel anime-style gag cartoon scripted out. This is a seed skill: sparse by design, built from one format; expand with more gag premises and meme formats as they come up.
 user-invocable: true
 ---
 
 # The Boba Side (seed)
 
 A working method for **The Boba Side**, a single-panel gag cartoon slot
-for *Bubble Tea News*, written as a clearly-labeled parody/homage to
-Gary Larson's absurdist one-panel style — best known for *The Far Side* —
-retitled and reframed around bubble tea premises. Treat this as a
-starting checklist, not a rigid template.
+for *Bubble Tea News*, scripted as an anime/manga-style image-generation
+prompt — otaku-culture and bubble-tea-meme sensibilities applied to
+original characters. Treat this as a starting checklist, not a rigid
+template.
 
-## Step 0 — Real-person safety check (do this before writing anything)
+## Step 0 — Three boundaries (do all three before writing anything)
 
-Gary Larson is a real, living cartoonist, and *The Far Side* is his
-specific, trademarked, still-actively-licensed body of work. That makes
-this meaningfully different from this library's fictional-character
-skills, and a notch more sensitive than the library's other living-person
-voice-parody skills (`grand-prix-showroom-ads`) — the risk here isn't just
-publicity rights, it's also treading close to a specific artist's
-recognizable creative property.
+**A. No image-generation tool available.** This workflow can't render
+actual artwork. The deliverable is a **structured text prompt** — written
+so the user (or another tool) could hand it to an external image
+generator — not a finished image, and not an attempt to fake one with
+hand-coded SVG or ASCII art. Say so plainly when delivering a panel: this
+is a script for artwork, not the artwork itself.
 
-- **Never title it "The Far Side."** The strip's in-fiction name is
-  **"The Boba Side"** — always call it that. Never reproduce his actual
-  trademark as this feature's name or byline.
-- **Never present these as real, unpublished, or actual Larson work.**
-  Every panel is an original, invented premise, clearly a comedic homage
-  to his *style and sensibility* (mundane creatures/objects placed in
-  absurd deadpan situations, scientist-and-blackboard scenes, animals with
-  very ordinary interior lives) — not a claim that Larson wrote, drew, or
-  endorsed it. If a byline runs, phrase it as "in the style of Gary
-  Larson's one-panel gag cartoons" or similar, never as if it's his own
-  signed work.
-- **No real endorsement, no real affiliation.** Nothing implying Larson
-  actually contributes to, has seen, or has approved of *Bubble Tea News*.
-- **Don't attempt to reproduce his actual illustration style.** There's no
-  image-generation tool available in this workflow, and even if there
-  were, mimicking a specific living artist's distinctive rendering
-  technique is a separate risk layer on top of the premise-and-caption
-  joke. Write the panel as a **scene description in prose** (what's
-  visible, deadpan, present tense) **plus a caption** — the way the gag
-  itself is described, not an attempt at the actual drawing. If the user
-  wants a lightweight visual alongside the text, keep it to simple,
-  schematic stick-figure/line-art SVG matching this paper's existing
-  icon-circle convention (see `bubble-tea-news-editor`) — deliberately
-  crude, never a pastiche of Larson's actual cross-hatched illustration
-  style.
+**B. Style reference, not character reference.** Naming a studio, artist,
+or series for aesthetic direction ("Ufotable-quality," "CLAMP-style
+linework") is normal, ordinary prompt-engineering vocabulary — style
+itself isn't the thing copyright protects, and this is the same register
+`the-boba-side-cartoon`'s own prior Larson homage and this library's other
+style-homage skills already operate in. The line is **characters**: every
+figure in the panel must be original to the Bubble Tea News universe (a
+tapioca pearl, a barista, one of the paper's own personas) drawn *in* a
+referenced style — never an actual existing copyrighted anime/manga
+character making a cameo. Don't put Luffy or Sailor Moon in the panel;
+put an original pearl-shaped mascot rendered like they could've been.
+
+**C. Memes are formats, not files.** Riffing on a well-known meme
+*template* (galaxy-brain escalation, "sweating anime guy" decision panel,
+"it's over 9000" power-scaling, "understandable, have a nice day," chibi
+rage-tears) applied to a bubble tea premise is the intended comedic
+device — describe the format and restage it with original characters.
+Don't claim to reproduce any specific meme's actual source image.
 
 ## Step 1 — The comedic engine
 
-- **The premise device.** Take an ordinary bubble tea/café detail — a
-  barista, a tapioca pearl, a menu board, a loyalty card, the shaker, the
-  straw — and place it in a flatly absurd situation, delivered with total
-  deadpan sincerity by everyone involved (human or otherwise). The joke
-  is the mismatch between the calm, matter-of-fact tone and the
-  ridiculousness of the scene — never a punchline that winks at the
-  reader.
+- **The premise device.** Take an ordinary bubble tea/café moment — the
+  first sip, the last pearl in the cup, a barista's shaker technique, a
+  loyalty-card countdown, a menu-board decision — and stage it with full
+  anime dramatic weight: speed lines, a dramatic zoom, a sparkle effect, a
+  chibi emotional collapse, over something objectively small.
 - **Signature moves to draw on** (mix and match, don't use all at once):
-  animals or objects with a rich, ordinary interior monologue about
-  something trivial; a scientist/expert at a blackboard explaining
-  something absurd in complete technical seriousness; a single moment of
-  quiet, cosmic-scale irony landing on an utterly mundane character; two
-  characters having a completely reasonable conversation about an
-  unreasonable premise.
-- **The caption is doing the work, not the description.** Keep the scene
-  description spare — just enough to picture it — and let the caption (or
-  a character's single line of dialogue) land the joke.
+  a mundane choice staged as a power-scaling showdown; an ordinary object
+  given a magical-girl transformation sparkle; a single-panel chibi
+  meltdown over something trivial; a "final boss" framing for something
+  like an empty pearl jar; deadpan narration captions in contrast to
+  hyper-dramatic visuals (the anime-culture equivalent of the Larson-era
+  mismatch device this strip started from).
+- **The caption is still doing the work.** Keep it short — often a single
+  line, sometimes styled like meme text (top text/bottom text, a
+  deadpan narration box) rather than a traditional gag-cartoon caption.
 
-## Step 2 — Format
+## Step 2 — Format: the six-part prompt formula
 
-A single panel, rendered as an actual (if deliberately crude) drawing, not
-just described:
+Write each panel as a structured prompt, covering all six parts, then the
+caption:
 
-1. **The image.** A simple schematic SVG — stroke-only line art, matching
-   this paper's existing icon-circle convention (`stroke="currentColor"`,
-   thin stroke-width, minimal filled dots for eyes/pearls/small details,
-   no gradients or cross-hatching). Frame it in a plain rectangular
-   border, same as a printed panel. Keep the element count low — a dozen
-   or so paths/shapes is usually enough to read the gag; resist adding
-   detail for its own sake. This is the default delivery now — write the
-   SVG, don't just prose-describe the scene, unless the user explicitly
-   asks for text only.
-2. **Caption or dialogue line**: the joke itself, usually short, set below
-   the image.
+1. **Sub-style anchor** — the actual category, not just "anime style."
+   (*Shoujo magical-girl*, not "cartoon"; *seinen gag-manga panel*, not
+   "Japanese style.")
+2. **Linework descriptor** — weight and texture. (*Bold, clean, confident
+   linework* vs. *fine, scratchy crosshatching*.)
+3. **Color language** — a specific, named palette, not "colorful."
+   (*Milky pastel lavender and cream*, *neon convenience-store teal and
+   magenta*.)
+4. **Studio or series reference** — carries the aesthetic DNA. (*Studio
+   Trigger energy*, *CLAMP-style elongated proportions*, *4-koma gag-manga
+   panel density*.) Style homage only — see Step 0-B.
+5. **Atmosphere word** — the emotional register. (*Chaotic*, *cozy*,
+   *deadpan*, *unhinged-cute*.)
+6. **Technical tag** — render/finish quality. (*Cel-shaded*, *screentone
+   texture*, *clean digital linework*, *sketchbook pencil roughs*.)
 
-A prose "scene description" is only a fallback for chat-only delivery
-where no image/file output is possible — prefer the SVG whenever the
-output medium supports it (an issue page, an Artifact, a written file).
+Then:
 
-Example caption shape (illustrative, not to be reused verbatim):
+7. **Scene** — what's actually happening, staged with the original
+   character(s) and the bubble tea premise from Step 1.
+8. **Caption** — the joke's punchline or meme-text line.
 
-> **"Look, it's not you. It's the straw."**
+### Example shape (illustrative, not to be reused verbatim)
+
+> **Prompt:** Shoujo magical-girl transformation sequence energy; bold
+> clean linework; milky pastel lavender-and-cream palette with one hot-
+> pink accent; Studio Trigger-adjacent motion lines; unhinged-cute
+> atmosphere; clean cel-shaded finish. An original tapioca-pearl mascot
+> character mid-air, sparkles radiating outward, arms thrown wide, as an
+> ordinary cup of milk tea transforms beneath her into an oversized,
+> glowing XL size.
 >
-> *(panel: two tapioca pearls at the bottom of an otherwise empty cup, one
-> wearing tiny reading glasses, reviewing a sheet of paper headed "Exit
-> Interview")*
+> **Caption:** "SHE UPSIZED."
 
-Byline convention: *"The Boba Side" — in the style of Gary Larson's
-one-panel gag cartoons.*
+Byline convention: *"The Boba Side" — an image-generation prompt, not a
+finished image; run it through your generator of choice.*
 
 ## Step 3 — Delivery
 
 - Within a *Bubble Tea News* issue: an optional rotating slot, not a
-  weekly fixture — use it when the issue has room and the user wants a
-  cartoon beat alongside the columns. Pick a fresh premise each time;
-  don't reuse a gag.
-- As a standalone piece: chat text is fine for a single panel. Offer an
-  Artifact only if the user wants several panels laid out together, and
-  keep any accompanying art to simple schematic line work per Step 0.
+  weekly fixture. Deliver the full six-part prompt plus caption as the
+  panel's content — clearly labeled as a prompt/script, not artwork.
+  Pick a fresh premise and a fresh six-part combination each time; don't
+  reuse a prior panel's style stack or gag.
+- As a standalone piece: chat text is fine for a single prompt. Offer a
+  written file or Artifact only if the user wants several panels' prompts
+  bundled together as a shootable script.
 
 ## To expand this skill later
 
-Add more signature devices and premise categories as panels accumulate.
-If the user ever wants this attributed to an original, non-real-person
-persona instead (sidestepping Step 0 entirely), that's a reasonable
-variant to add — an in-house *Bubble Tea News* cartoonist character, the
-same way Gordon Slate and Freya Wilcox are original in-house personas
-rather than real-person parodies.
+Build out a running library of otaku meme-format riffs (power-scaling,
+transformation sequences, chibi-rage, isekai-premise cold opens) paired
+with bubble tea premises, so future panels can mix fresh combinations
+rather than reaching for the same one twice. If an actual image-generation
+tool becomes available in this workflow, revisit Step 0-A — the six-part
+prompt becomes the direct input rather than a handoff artifact.
