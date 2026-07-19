@@ -74,6 +74,7 @@ content and are excluded from rotation.)
 | The Boba Side, single-panel gag cartoon (Larson-style parody) | `the-boba-side-cartoon` |
 | Skeletor, "In Memoriam" obituary column | `skeletor-obituary-column` |
 | Horatio McCallister, "Ask the Captain" personals column | `horatio-mccallister-personals-column` |
+| Hayaku, syndicated 4-panel volleyball manga strip (senkotsu style) | `hayaku-senkotsu-strip` |
 
 ## Step 2 — Fixed weekly anchors
 
