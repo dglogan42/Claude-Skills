@@ -107,10 +107,27 @@ itself is designed to refresh every issue:
   that skill's own Step 0 boundary: the target's anonymity must always be
   trivial/comedic, never a stand-in for a real reason to conceal identity.
 
+## Step 2c — Cartoon slot anchor (biweekly alternation)
+
+- **Cartoon slot** — strictly alternates between `the-boba-side-cartoon`
+  and `hayaku-senkotsu-strip`, one per issue, never both in the same issue
+  and never neither. Check the rotation log for which of the two ran last
+  issue and run the other one this issue — each therefore lands roughly
+  every second (biweekly) issue on a fixed alternation, not a free pick
+  from the general rotating pool in Step 3.
+  - When it's The Boba Side's turn: pick a fresh premise (that skill's
+    Step 1) — never reuse a prior gag.
+  - When it's Hayaku's turn: continue the running match/season arc from
+    wherever the last strip left off (that skill's Step 3) rather than
+    starting a new story each time it comes up.
+  - If neither has ever run yet, either can go first.
+
 ## Step 3 — Rotating slots
 
-The template has roughly 8–10 non-anchor content slots across both pages.
-Fill them by:
+The template has roughly 8–10 non-anchor content slots across both pages
+(`the-boba-side-cartoon` and `hayaku-senkotsu-strip` are excluded from this
+general pool — they're on their own fixed alternation per Step 2c). Fill
+the remaining slots by:
 
 1. Reading the rotation log for the last 2 issues' lineups.
 2. Excluding any persona used in either of those issues, if the remaining
