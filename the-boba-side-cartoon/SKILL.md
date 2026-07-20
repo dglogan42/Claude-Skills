@@ -1,6 +1,6 @@
 ---
 name: the-boba-side-cartoon
-description: Write and render "The Boba Side" — Bubble Tea News's single-panel gag cartoon slot, staged as an anime/manga-style gag (otaku-culture and bubble-tea-meme sensibilities applied to original characters — chibi, shoujo, seinen, shonen, bishoujo sub-styles) and actually rendered with ImageMagick's `-draw`/inline-MVG primitives to PNG — simple schematic raster shapes carrying anime-style cues (screentone-dot hatching, speed lines, sparkle effects, named spot colors), not genuine polished anime illustration, since there's no image-generation model in this workflow. ImageMagick is the standing default renderer, embedded via `<img>` (its SVG *writer* is confirmed broken for multi-shape colored output — geometry survives but fill/stroke colors and all but the last shape are dropped — so PNG is the only reliable output here, unlike this library's other pycairo/SkiaSharp renderers). Reuses hard-won lessons from this paper's own rollout: give large fill shapes internal detail so they read at real print size, and watch the 2-page print budget. Use when assembling a Bubble Tea News issue that wants a cartoon slot, or whenever the user wants a one-panel anime-style gag actually drawn. This is a seed skill: sparse by design, built from one format and one render method; expand with more gag premises and meme formats as they come up.
+description: Write and render "The Boba Side" — Bubble Tea News's single-panel gag cartoon slot, staged as an anime/manga-style gag (otaku-culture and bubble-tea-meme sensibilities applied to original characters — chibi, shoujo, seinen, shonen, bishoujo sub-styles) and actually rendered with ImageMagick's `-draw`/inline-MVG primitives to PNG — simple schematic raster shapes carrying anime-style cues (screentone-dot hatching, speed lines, sparkle effects, named spot colors), not genuine polished anime illustration, since there's no image-generation model in this workflow. ImageMagick is the primary renderer, embedded via `<img>` (its SVG *writer* is confirmed broken for multi-shape colored output — geometry survives but fill/stroke colors and all but the last shape are dropped — so PNG is the only reliable output here, unlike this library's other pycairo/SkiaSharp renderers). A compiled C + Win32 GDI path is also verified working as an alternative renderer, though plain GDI can't do bezier curves (straight-edge/circle primitives only). Reuses hard-won lessons from this paper's own rollout: give large fill shapes internal detail so they read at real print size, and watch the 2-page print budget. Use when assembling a Bubble Tea News issue that wants a cartoon slot, or whenever the user wants a one-panel anime-style gag actually drawn. This is a seed skill: sparse by design, built from one format and two verified render methods; expand with more gag premises and meme formats as they come up.
 user-invocable: true
 ---
 
@@ -170,6 +170,26 @@ None of that applies to a PNG `<img>` — the selector only targets `<svg>`
 elements, so a raster panel's colors print exactly as rendered with zero
 extra CSS work. If a future revision goes back to SVG output for any
 reason, revisit this step; until then there is nothing to configure here.
+
+## Step 3b — Alternative renderer: compiled C + Win32 GDI
+
+Verified working as a second option, not a replacement for ImageMagick
+above — use this if a C toolchain (`gcc`/`g++`, e.g. via WinLibs/MinGW)
+is what's available/preferred. Same technique `hayaku-senkotsu-strip`
+documents in its own Step 3b — see that skill for the full mechanics
+(`CreateDIBSection` for the pixel buffer, `Ellipse`/`Polygon`/`LineTo`
+for shapes, clipped-region hatching, `TextOutA` for captions, BMP file
+output converted to PNG via `magick out.bmp out.png`, compiled with
+`gcc render.c -o render.exe -lgdi32 -lmsimg32`).
+
+One real difference worth knowing for *this* skill specifically: plain
+GDI `Polygon()` only draws straight edges, no bezier curves. Verified by
+rendering Panel 1's hedge (Issue 1's gnome gag) this way — it came out
+as a sharp zigzag instead of the smooth lumpy curve the ImageMagick
+`path 'M... C...'` version produces. Not a bug, just a real capability
+gap: if a panel's composition needs a smooth curve (a swan neck, a
+lumpy hedge), either accept the faceted look, use GDI's `PolyBezier`
+(untried here so far), or use ImageMagick instead for that panel.
 
 ## Step 4 — Delivery
 

@@ -1,6 +1,6 @@
 ---
 name: hayaku-senkotsu-strip
-description: Write and render "Hayaku" — Bubble Tea News's syndicated four-panel (yonkoma) sports-manga strip, an original high-school volleyball series rendered in "senkotsu" style (clean bamboo-like linework, HB under-sketch with 2B-6B-style hatched/crosshatched shading via a manual line-hatch technique, forced perspective via panel composition, high-contrast black-and-white for newsprint) using SkiaSharp (MIT-licensed, cross-platform) from PowerShell as the renderer — schematic panel compositions in the same simple register as the-boba-side-cartoon's pycairo art, not full character illustration. Runs as an unrelated syndicated strip alongside the paper's own bubble tea content, the way a real newspaper carries Garfield or Peanuts. Use when assembling a Bubble Tea News issue that wants a syndicated comic-strip slot, or whenever the user wants a Hayaku strip written up and rendered. This is a seed skill: sparse by design, built from one house style brief (senkotsu.YAML) and one render method; expand with a running cast, match/season arc, and richer figure primitives as strips accumulate.
+description: Write and render "Hayaku" — Bubble Tea News's syndicated four-panel (yonkoma) sports-manga strip, an original high-school volleyball series rendered in "senkotsu" style (clean bamboo-like linework, HB under-sketch with 2B-6B-style hatched/crosshatched shading via a manual line-hatch technique, forced perspective via panel composition, high-contrast black-and-white for newsprint) using SkiaSharp (MIT-licensed, cross-platform) from PowerShell as the primary renderer — schematic panel compositions in the same simple register as the-boba-side-cartoon's ImageMagick art, not full character illustration. A compiled C + Win32 GDI path is also verified working as an alternative renderer (same composition, no bezier curves though — straight-edge/circle primitives only). Runs as an unrelated syndicated strip alongside the paper's own bubble tea content, the way a real newspaper carries Garfield or Peanuts. Use when assembling a Bubble Tea News issue that wants a syndicated comic-strip slot, or whenever the user wants a Hayaku strip written up and rendered. This is a seed skill: sparse by design, built from one house style brief (senkotsu.YAML) and two verified render methods; expand with a running cast, match/season arc, and richer figure primitives as strips accumulate.
 user-invocable: true
 ---
 
@@ -246,6 +246,46 @@ the issue (not a full-screen preview) before calling a panel done — the
 same "flat block/pattern doesn't read at real print size" failure mode
 documented in `the-boba-side-cartoon` applies here too, for a hatch
 pattern that's too sparse or too dense once shrunk.
+
+## Step 3b — Alternative renderer: compiled C + Win32 GDI
+
+Verified working as a second option, not a replacement for SkiaSharp
+above — use this if a C toolchain (`gcc`/`g++`, e.g. via WinLibs/MinGW)
+is what's available/preferred over restoring the SkiaSharp NuGet cache.
+No extra libraries needed beyond what MinGW already links against.
+
+1. `CreateCompatibleDC` + `CreateDIBSection` (top-down 32bpp `BITMAPINFO`,
+   `biHeight` negative) gives a real pixel buffer (`bits`) and an `HBITMAP`
+   to `SelectObject` into the DC — this is the canvas.
+2. Shapes: `Ellipse(hdc, l, t, r, b)` for circles, `Polygon(hdc, pts, n)`
+   for filled multi-point shapes (panel border via `Rectangle`,
+   `MoveToEx`+`LineTo` for individual lines/limbs). Select an `HPEN`
+   (`CreatePen(PS_SOLID, width, RGB(...))`) and `HBRUSH`
+   (`CreateSolidBrush`/`GetStockObject(NULL_BRUSH)`) into the DC first —
+   same fill-then-stroke model as the other renderers in this library.
+3. Hatching: clip to a region with `CreateRectRgn`/`SelectClipRgn`, draw
+   parallel `MoveToEx`/`LineTo` strokes spanning the clip height (same
+   "line spans the full height, start one height to the left" fix
+   documented in Step 3 above — the bug and its fix are renderer-agnostic).
+4. Text: `CreateFontA` + `SelectObject` + `TextOutA` (or `DrawTextA` for
+   a centered caption inside a `RECT`).
+5. **No native bezier curves via plain `Polygon`** — straight-line
+   polygons only, so a smoothly-curved shape (this skill doesn't need
+   one, but note it for e.g. Boba Side's hedge) comes out faceted/zigzag
+   rather than smooth. `PolyBezier` exists in GDI for this if a curve is
+   ever needed; not used here since panel content so far is all
+   straight-edge/circle primitives.
+6. GDI has no built-in PNG writer. Save the raw pixel buffer as a `.bmp`
+   (write a `BITMAPFILEHEADER` + the same `BITMAPINFOHEADER` + the pixel
+   bytes to a file — straightforward boilerplate, no library needed),
+   then convert with ImageMagick (`magick out.bmp out.png` — already
+   verified installed and working via `the-boba-side-cartoon`).
+7. Compile: `gcc render.c -o render.exe -lgdi32 -lmsimg32`, then run the
+   resulting `.exe` to produce the `.bmp`.
+
+Verified end-to-end: compiled the full four-panel debut strip this way
+and it matched the SkiaSharp version's composition exactly (same panel
+grid, same figure poses, same captions).
 
 ## Step 4 — Delivery
 
