@@ -64,8 +64,9 @@ Write each panel's scene description so it can actually be rendered (Step
 
 ## Step 2 — Format
 
-Exactly **four panels** (a yonkoma strip, laid out vertically or as a 2×2
-grid — writer's choice). For each panel give:
+Exactly **four panels** (*yonkoma* — "yon" four, "koma" panel/frame —
+laid out vertically or as a 2×2 grid — writer's choice). For each panel
+give:
 
 1. **Panel number and framing** (e.g. "Panel 1 — wide, outdoor, forced low
    angle").
