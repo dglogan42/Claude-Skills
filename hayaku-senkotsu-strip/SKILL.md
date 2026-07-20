@@ -1,6 +1,6 @@
 ---
 name: hayaku-senkotsu-strip
-description: Write and render "Hayaku" — Bubble Tea News's syndicated four-panel (yonkoma) sports-manga strip, an original high-school volleyball series rendered in "senkotsu" style (clean bamboo-like linework, HB under-sketch with 2B-6B-style hatched/crosshatched shading via a manual line-hatch technique, forced perspective via panel composition, high-contrast black-and-white for newsprint) using SkiaSharp (MIT-licensed, cross-platform) from PowerShell as the primary renderer — schematic panel compositions in the same simple register as the-boba-side-cartoon's ImageMagick art, not full character illustration. A compiled C + Win32 GDI path is also verified working as an alternative renderer (same composition, no bezier curves though — straight-edge/circle primitives only). Runs as an unrelated syndicated strip alongside the paper's own bubble tea content, the way a real newspaper carries Garfield or Peanuts. Use when assembling a Bubble Tea News issue that wants a syndicated comic-strip slot, or whenever the user wants a Hayaku strip written up and rendered. This is a seed skill: sparse by design, built from one house style brief (senkotsu.YAML) and two verified render methods; expand with a running cast, match/season arc, and richer figure primitives as strips accumulate.
+description: Write and render "Hayaku" — Bubble Tea News's syndicated four-panel (yonkoma) sports-manga strip, an original high-school volleyball series rendered in "senkotsu" style (clean bamboo-like linework, HB under-sketch with 2B-6B-style hatched/crosshatched shading via a manual line-hatch technique, forced perspective via panel composition, high-contrast black-and-white for newsprint) using SkiaSharp (MIT-licensed, cross-platform) from PowerShell as the primary renderer — schematic panel compositions in the same simple register as the-boba-side-cartoon's ImageMagick art, not full character illustration. A compiled C + Win32 GDI path is also verified working as an alternative renderer (same composition, no bezier curves though — straight-edge/circle primitives only). Render at 2000px+ per side with antialiasing on, DPI-stamped to 300 via an ImageMagick post-process (SkiaSharp's encoder has no DPI metadata support directly); optionally verify the finished PNG loads correctly in pygame and/or WPF as an independent round-trip/DPI check. Runs as an unrelated syndicated strip alongside the paper's own bubble tea content, the way a real newspaper carries Garfield or Peanuts. Use when assembling a Bubble Tea News issue that wants a syndicated comic-strip slot, or whenever the user wants a Hayaku strip written up and rendered. This is a seed skill: sparse by design, built from one house style brief (senkotsu.YAML) and two verified render methods; expand with a running cast, match/season arc, and richer figure primitives as strips accumulate.
 user-invocable: true
 ---
 
@@ -246,6 +246,42 @@ the issue (not a full-screen preview) before calling a panel done — the
 same "flat block/pattern doesn't read at real print size" failure mode
 documented in `the-boba-side-cartoon` applies here too, for a hatch
 pattern that's too sparse or too dense once shrunk.
+
+**Resolution and DPI, for a print-quality source image:** render at
+2000px+ per side rather than the 900×900 shown above — do this by
+keeping every drawing call's coordinates in a fixed "design" space (e.g.
+1840×1840, as used for the actual Issue 9 debut render) and applying
+`$canvas.Scale($OutputSize / $DesignSize, ...)` once right after
+`Clear()`, before any drawing — stroke widths scale proportionally too,
+so nothing needs hand-editing per coordinate. `IsAntialias = $true` is
+already set on every paint in this doc's examples; keep doing that at
+the higher resolution too, it's what actually keeps curves/diagonals
+smooth once upscaled. SkiaSharp's `Encode(format, quality)` doesn't
+carry DPI metadata — stamp real 300 DPI afterward via ImageMagick
+(already verified installed/working elsewhere in this project):
+`magick in.png -units PixelsPerInch -density 300 out.png`. Verify the
+stamp actually took with `magick identify -format "%x x %y units=%U"
+out.png` — PNG's `pHYs` chunk stores pixels-per-meter internally, so
+this reports in `PixelsPerCentimeter` (118.11 px/cm × 2.54 = 300 px/in)
+even though `-units PixelsPerInch` was the input unit; that's normal,
+not a sign the stamp failed. Note this does mean the ImageMagick pass
+may also re-encode a pure black/white/opaque image down to 8-bit
+grayscale (dropping an all-255 alpha channel as redundant) — harmless
+for this style, but don't be surprised the color type changed if you
+diff the file.
+
+**Optional QA step — verify a real consumer can load it**, not just
+that the render pipeline produced *a* file: load the finished PNG in
+`pygame` (`SDL_VIDEODRIVER=dummy` env var for a headless run,
+`pygame.image.load()`, blit to a same-size display surface,
+`pygame.image.save()` to check the round-trip is pixel-identical) and/or
+WPF (`BitmapImage` with `CacheOption = OnLoad`, check `.PixelWidth`/
+`.PixelHeight`/`.DpiX`/`.DpiY` come back as expected, then
+`RenderTargetBitmap` + `PngBitmapEncoder` to round-trip it back to a
+file). Both confirmed a real 2400×2400 render at 300 DPI correctly in
+practice — WPF is a good independent check on the DPI stamp
+specifically, since it actually reads and reports the `pHYs` value
+rather than just trusting the encoder did the right thing.
 
 ## Step 3b — Alternative renderer: compiled C + Win32 GDI
 
