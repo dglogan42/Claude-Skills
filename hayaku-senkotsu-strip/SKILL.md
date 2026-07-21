@@ -1,6 +1,6 @@
 ---
 name: hayaku-senkotsu-strip
-description: Write and render "Hayaku" — Bubble Tea News's syndicated four-panel (yonkoma) sports-manga strip, an original high-school volleyball series rendered in "senkotsu" style (clean bamboo-like linework, HB under-sketch with 2B-6B-style hatched/crosshatched shading via a manual line-hatch technique, forced perspective via panel composition, high-contrast black-and-white for newsprint) using SkiaSharp (MIT-licensed, cross-platform) from PowerShell as the primary renderer — schematic panel compositions in the same simple register as the-boba-side-cartoon's ImageMagick art, not full character illustration. A compiled C + Win32 GDI path is also verified working as an alternative renderer (same composition, no bezier curves though — straight-edge/circle primitives only). Render at 2000px+ per side with antialiasing on, DPI-stamped to 300 via an ImageMagick post-process (SkiaSharp's encoder has no DPI metadata support directly); optionally verify the finished PNG loads correctly in pygame and/or WPF as an independent round-trip/DPI check. Runs as an unrelated syndicated strip alongside the paper's own bubble tea content, the way a real newspaper carries Garfield or Peanuts. Use when assembling a Bubble Tea News issue that wants a syndicated comic-strip slot, or whenever the user wants a Hayaku strip written up and rendered. This is a seed skill: sparse by design, built from one house style brief (senkotsu.YAML) and two verified render methods; expand with a running cast, match/season arc, and richer figure primitives as strips accumulate.
+description: Write and render "Hayaku" — Bubble Tea News's syndicated four-panel (yonkoma) sports-manga strip, an original high-school volleyball series rendered in "senkotsu" style (clean bamboo-like linework, HB under-sketch with 2B-6B-style hatched/crosshatched shading via a manual line-hatch technique, forced perspective via panel composition, high-contrast black-and-white for newsprint) using SkiaSharp (MIT-licensed, cross-platform) from PowerShell as the primary renderer — schematic panel compositions in the same simple register as the-boba-side-cartoon's ImageMagick art, not full character illustration. A compiled C + Win32 GDI path is also verified working as an alternative renderer (same composition, no bezier curves though — straight-edge/circle primitives only). A third verified path — hand-authored SVG rasterized via Inkscape's CLI (`--export-png-antialias=3 --export-png-color-mode=Gray_8`) — produces the crispest linework/hatching of the three, since rasterization happens once from real vector geometry at final resolution rather than a fixed-pixel canvas upscale; used for Issue 9's debut strip. Render at 2000px+ per side with antialiasing on, DPI-stamped to 300 via an ImageMagick post-process (none of these renderers write DPI metadata directly); optionally verify the finished PNG loads correctly in pygame and/or WPF as an independent round-trip/DPI check. Runs as an unrelated syndicated strip alongside the paper's own bubble tea content, the way a real newspaper carries Garfield or Peanuts. Use when assembling a Bubble Tea News issue that wants a syndicated comic-strip slot, or whenever the user wants a Hayaku strip written up and rendered. This is a seed skill: sparse by design, built from one house style brief (senkotsu.YAML) and three verified render methods; expand with a running cast, match/season arc, and richer figure primitives as strips accumulate.
 user-invocable: true
 ---
 
@@ -282,6 +282,53 @@ file). Both confirmed a real 2400×2400 render at 300 DPI correctly in
 practice — WPF is a good independent check on the DPI stamp
 specifically, since it actually reads and reports the `pHYs` value
 rather than just trusting the encoder did the right thing.
+
+## Step 3a — Alternative renderer: hand-authored SVG + Inkscape CLI
+
+Verified working as a third option (Issue 9's debut strip was rebuilt this
+way) — cross-platform, no NuGet/SkiaSharp cache or C toolchain needed,
+just Inkscape itself. Produces genuinely crisper linework and hatching
+than the SkiaSharp/pycairo raster path, because rasterization happens
+once, at final output resolution, from real vector geometry — not drawn
+at a fixed pixel size and upscaled.
+
+1. Author the four panels as plain SVG by hand: `<rect>`/`<circle>` for
+   borders and heads, `<polyline>` for limbs and motion lines, `<path>`
+   for the ball's seam curve. Build hatching as a tileable `<pattern>`
+   (a single diagonal `<line>` for sparse single-direction hatch, two
+   perpendicular lines for crosshatch) rather than drawing dozens of
+   individual line elements — cleaner file, perfectly even tiling, and
+   reusable across every hatched region via `fill="url(#hatchCross)"`.
+   For a fill confined to a non-rectangular area (the ball's shadowed
+   lower half), define a `<clipPath>` and apply it to a `<g>` wrapping
+   the pattern-filled rect.
+2. Rasterize with Inkscape's CLI, not ImageMagick or the browser —
+   Inkscape's PNG exporter has dedicated quality controls the others
+   don't:
+   ```
+   inkscape strip.svg --export-type=png \
+     --export-filename=strip.png \
+     --export-width=2400 --export-height=2400 \
+     --export-png-antialias=3 \
+     --export-png-color-mode=Gray_8 \
+     --export-background=white --export-background-opacity=1
+   ```
+   `--export-png-antialias=3` (max quality, default is 2) is what
+   actually produces the visibly cleaner curve/diagonal edges over the
+   SkiaSharp render. `--export-png-color-mode=Gray_8` is correct for
+   this style specifically — pure black-and-white line art with AA
+   edges, no need for the RGBA channels a default export would carry.
+   `--export-width`/`--export-height` set the exact final pixel size
+   directly, no "design space + canvas.Scale" workaround needed since
+   the source is already resolution-independent vector.
+3. Still stamp real 300 DPI metadata afterward the same way as the
+   SkiaSharp path — Inkscape's PNG export doesn't write DPI metadata
+   either: `magick strip.png -units PixelsPerInch -density 300
+   strip-300dpi.png`.
+4. Keep the `.svg` source alongside the delivered `.png` in `issues/`
+   (e.g. `hayaku-issue9-debut.svg` next to `hayaku-issue9-debut.png`) —
+   unlike the raster-only SkiaSharp/GDI paths, this one has a real
+   editable vector source worth keeping for future touch-ups.
 
 ## Step 3b — Alternative renderer: compiled C + Win32 GDI
 
