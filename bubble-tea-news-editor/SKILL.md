@@ -75,6 +75,8 @@ content and are excluded from rotation.)
 | Skeletor, "In Memoriam" obituary column | `skeletor-obituary-column` |
 | Horatio McCallister, "Ask the Captain" personals column | `horatio-mccallister-personals-column` |
 | Hayaku, syndicated 4-panel volleyball manga strip (senkotsu style) | `hayaku-senkotsu-strip` |
+| Cat vs Dog, syndicated gag cartoon (panel count varies) | `cat-vs-dog-cartoon` |
+| Doki Doki Mon, syndicated 4-panel monster-collecting strip (senkotsu style) | `doki-doki-mon-strip` |
 
 ## Step 2 — Fixed weekly anchors
 
@@ -107,20 +109,34 @@ itself is designed to refresh every issue:
   that skill's own Step 0 boundary: the target's anonymity must always be
   trivial/comedic, never a stand-in for a real reason to conceal identity.
 
-## Step 2c — Cartoon slot anchor (biweekly alternation)
+## Step 2c — Cartoon slot anchor (rotating among four strips)
 
-- **Cartoon slot** — strictly alternates between `the-boba-side-cartoon`
-  and `hayaku-senkotsu-strip`, one per issue, never both in the same issue
-  and never neither. Check the rotation log for which of the two ran last
-  issue and run the other one this issue — each therefore lands roughly
-  every second (biweekly) issue on a fixed alternation, not a free pick
-  from the general rotating pool in Step 3.
+- **Cartoon slot** — one cartoon per issue, never more than one and never
+  none. As of Issue 11 this rotates among **four** strips:
+  `the-boba-side-cartoon`, `hayaku-senkotsu-strip`, `cat-vs-dog-cartoon`,
+  and `doki-doki-mon-strip` (originally a strict two-way Boba
+  Side/Hayaku alternation through Issue 9; widened when the two new
+  strips debuted). Check the rotation log for which strip ran last issue
+  and don't repeat it — beyond that, favor whichever strip has gone
+  longest without a turn, same spirit as Step 3's exclusion-window logic
+  for the general rotating pool, rather than a free pick.
   - When it's The Boba Side's turn: pick a fresh premise (that skill's
     Step 1) — never reuse a prior gag.
-  - When it's Hayaku's turn: continue the running match/season arc from
-    wherever the last strip left off (that skill's Step 3) rather than
-    starting a new story each time it comes up.
-  - If neither has ever run yet, either can go first.
+  - When it's Hayaku's or Doki Doki Mon's turn: continue the running
+    match/season arc or ensemble story from wherever the last strip left
+    off (each skill's own Step on serialization) rather than starting a
+    new story each time it comes up.
+  - When it's Cat vs Dog's turn: pick a fresh domestic-gag premise (that
+    skill's Step 1) — panel count is a per-gag call, not fixed.
+  - A strip's debut issue takes that issue's cartoon-slot turn outright,
+    even if it means bumping another strip's own previously-announced
+    return (this happened at Cat vs Dog's Issue 10 debut, which bumped The
+    Boba Side's promised Issue 10 return by one issue) — note the bump
+    explicitly in that issue's colophon/no-print instructions so the
+    rotation log stays legible about why the expected strip didn't run.
+  - If a strip has never run yet, it can debut whenever there's a reason
+    to (a finished art pass ready to go); it doesn't have to wait its
+    "turn" in the existing alternation order.
 
 ## Step 3 — Rotating slots
 
