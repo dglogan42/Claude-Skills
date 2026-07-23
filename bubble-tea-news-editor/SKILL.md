@@ -163,6 +163,40 @@ device, and any Step 0 safety/accuracy rules it carries). Do not simply
 copy an existing worked example from that skill's `examples/` folder into
 the issue; those examples are references for voice, not reusable content.
 
+## Step 4b — No-AI-slop pass
+
+Before a persona's fresh copy goes into the issue, run it through the
+`no-ai-slop` skill's edit mode (this library's own vendored copy of
+[petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop) — see
+that skill's `SKILL.md`/`eval.md`) as a copy-editing QC step, the same way
+a real newsroom runs a copy editor over every columnist before print.
+
+- **Persona voice is not slop.** Each persona's established quirks —
+  running gags, catchphrases, and structural devices (Steve Jobs's
+  binary-contrast/short-fragment cadence, Richard Nixon's paranoid
+  parenthetical self-justification, Sebastian's "realm" framing, The
+  Stickybeak's "sources close to..." tabloid sourcing, Skeletor's
+  villain-monologue rhythm, Horatio McCallister's nautical metaphor into a
+  fixed "Fair winds" signoff, Robin Leach's "Champagne wishes, caviar
+  dreams" refrain, etc.) are the voice this skill exists to *preserve*,
+  not generic AI patterns to flatten. When in doubt, keep the persona's
+  version — the skill's own "preserve real voice" principle governs the
+  call, not a mechanical pattern match.
+- **The one real recurring issue in this paper's own history: em-dash
+  overuse as a rhythm crutch.** An audit of Issues 1-12 found the corpus
+  otherwise already clean (no banned words, no weasel attribution or
+  importance puffery beyond intentional voice, no colon-reveal gimmicks),
+  but several columns had stacked 3+ em dashes in one short paragraph.
+  Watch for that specifically: if a column has 3 or more, trim the least
+  load-bearing one to a period, comma, or actual parentheses rather than
+  a dash-pair — 1-2 dashes per short column is the skill's own allowance,
+  and clearing a cluster this way is usually a one-sentence fix, not a
+  rewrite.
+- Check the edit against `eval.md` before finalizing, same as that skill's
+  own workflow. If nothing needs to change, say so rather than forcing an
+  edit — the skill's job is minimum effective change, not a mandatory
+  rewrite of every column.
+
 ## Step 5 — Assemble the issue
 
 1. Copy `print-edition.html` to a new file (`issues/issue-N.html`,
