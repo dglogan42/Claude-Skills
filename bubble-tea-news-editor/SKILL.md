@@ -186,12 +186,20 @@ a real newsroom runs a copy editor over every columnist before print.
   overuse as a rhythm crutch.** An audit of Issues 1-12 found the corpus
   otherwise already clean (no banned words, no weasel attribution or
   importance puffery beyond intentional voice, no colon-reveal gimmicks),
-  but several columns had stacked 3+ em dashes in one short paragraph.
-  Watch for that specifically: if a column has 3 or more, trim the least
-  load-bearing one to a period, comma, or actual parentheses rather than
-  a dash-pair — 1-2 dashes per short column is the skill's own allowance,
-  and clearing a cluster this way is usually a one-sentence fix, not a
-  rewrite.
+  but em dashes were still everywhere — nearly every column had at least
+  one. A first pass that only cleared 3+-dash clusters and left 1-2 per
+  column (treating that as within the skill's "longer drafts" allowance)
+  turned out to be too permissive: these columns are short copy (2-5
+  sentences), which is the skill's stricter "usually none" case, not its
+  "1-2 in a longer draft" case. Default to zero em dashes in generated
+  copy. Convert each to whichever of period / comma / colon / actual
+  parentheses fits the sentence — almost always at least one works as
+  well, per the skill's own point that a dash only earns its place when
+  it *clearly* beats those alternatives. The one dash pattern that's a
+  real typographic convention rather than a rhythm crutch and should stay:
+  "— Name" quote/caption attribution (pull-quote cites, image captions,
+  puzzle-answer bylines) — that's standard attribution formatting, not
+  slop.
 - Check the edit against `eval.md` before finalizing, same as that skill's
   own workflow. If nothing needs to change, say so rather than forcing an
   edit — the skill's job is minimum effective change, not a mandatory
