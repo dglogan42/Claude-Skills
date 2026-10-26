@@ -1,6 +1,6 @@
 ---
 name: doki-doki-mon-strip
-description: Write and prepare "Doki Doki Mon" — Bubble Tea News's second syndicated four-panel (yonkoma) manga strip, an original monster-collecting adventure series (trainer-and-creature partnerships, in the vein of the real, still-running monster-collecting genre) rendered in the same senkotsu house style as Hayaku (clean bamboo-like linework, high-contrast black-and-white, forced perspective via panel composition), deliberately unrelated to bubble tea by design. Art is hand-drawn on paper, photographed, and cleaned up digitally (background-blur divide to flatten shadow/vignette, autocontrast, crop tight) — see Step 3 and cat-vs-dog-cartoon's Step 3 for the shared, actually-verified pipeline, not a programmatic renderer. Debuted Issue 11, taking that issue's cartoon-slot turn. Use when assembling a Bubble Tea News issue that wants this cartoon slot, or when the user wants a new Doki Doki Mon strip written up. This is a seed skill: sparse by design, built from one debut panel; expand with a running cast and creature roster as strips accumulate, mirroring hayaku-senkotsu-strip's own match/season-arc tracking.
+description: Write and prepare "Doki Doki Mon" — Bubble Tea News's second syndicated four-panel (yonkoma) manga strip, an original monster-collecting adventure series (trainer-and-creature partnerships, in the vein of the real, still-running monster-collecting genre) rendered in the same senkotsu house style as Hayaku (clean bamboo-like linework, high-contrast black-and-white, forced perspective via panel composition), deliberately unrelated to bubble tea by design. Art is hand-drawn on paper, photographed, and cleaned up digitally (background-blur divide to flatten shadow/vignette, autocontrast, crop tight) — see Step 3 and cat-vs-dog-cartoon's Step 3 for the shared, actually-verified pipeline, not a programmatic renderer. Debuted Issue 11, taking that issue's cartoon-slot turn. Use when assembling a Bubble Tea News issue that wants this cartoon slot, or when the user wants a new Doki Doki Mon strip written up. This is a seed skill: sparse by design, built from one debut panel; expand with a running cast and creature roster as strips accumulate, mirroring hayaku-senkotsu-strip's own match/season-arc tracking. Includes an artist-craft pass: artistic question, style pillars, name-before-draw panel plan, and a critique pass before print.
 user-invocable: true
 ---
 
@@ -79,6 +79,18 @@ the hand-drawn panel-divider lines intact in the delivered image rather
 than slicing the sheet into four separate files, matching how Hayaku's
 own four-panel debut was delivered as one image.
 
+## Artist craft (from bot artist skills)
+
+Craft borrowed from the artist-mode, manga-studio and art-director skills — craft only, not their persona voices. Original characters only; no franchise characters. Step 0 boundaries still come first.
+
+1. **Artistic question** — write one sentence this issue's strip answers (e.g. "what does losing look like when nobody admits it?"). If the gag doesn't answer it, fix the gag, not the question.
+2. **Style pillars** — senkotsu · creature · adventure. Keep line weight consistent (heavier outer contour, lighter interior detail), simple readable silhouettes, high-contrast black-and-white that survives newsprint. Don't: polished illustration, gradients that mud in print, more than one focal point per panel.
+3. **Name before drawing** — Always 4 panels, ki-shou-ten-ketsu: 1 ki trainer + creature setup, 2 shou attempt, 3 ten twist (usually the creature's), 4 ketsu landing. Per panel: beat, framing, who acts, who reacts (trainer vs creature). Keep balloons short (~25 words max), placed in reading order, never over a face.
+4. **Render** — via the existing pipeline (Step 3 hand-drawn photo cleanup (shared with cat-vs-dog-cartoon Step 3)). Art stays schematic or hand-drawn-photo, not polished illustration. GenerateImage is not required and never replaces Step 0 originality rules.
+5. **Critique pass before print** — open the finished PNG and look at it before embedding: (a) what is actually visible, (b) does it match the name and artistic question, (c) one or two concrete fixes (e.g. "reactor's face too small at print size — enlarge 30%"). Separate observation from interpretation; never critique art you haven't opened.
+
+Shared critique language with: cat-vs-dog-cartoon, the-boba-side-cartoon, hayaku-senkotsu-strip.
+
 ## Step 4 — Delivery
 
 - Within a *Bubble Tea News* issue: shares the cartoon slot's alternation
@@ -95,6 +107,29 @@ own four-panel debut was delivered as one image.
 - Byline convention: *"Doki Doki Mon — a new syndicated four-panel strip,
   Bubble Tea News's cartoon slot, hand-drawn; an original monster-
   collecting parody, unrelated to bubble tea by design."*
+
+## On Linux
+
+The Windows steps above (ImageMagick 7 `magick`, Inkscape, SkiaSharp,
+GDI+, PowerShell, PSWriteHTML, Edge) stay valid on Windows. On a Linux
+box use these equivalents:
+
+- **DPI tagging:** Pillow, `Image.open(p).save(out, dpi=(300, 300))`. If
+  ImageMagick is installed but there's no `magick` binary (IM6), use
+  `convert in.png -units PixelsPerInch -density 300 out.png` and
+  `identify -format "%x x %y units=%U" out.png`.
+- **SVG to PNG:** `rsvg-convert -w 1800 in.svg -o out.png` (librsvg2-bin),
+  or headless Chrome: `google-chrome --headless=new --no-sandbox
+  --hide-scrollbars --window-size=1800,1260 --screenshot=out.png
+  file://$PWD/in.svg`. Inkscape CLI also works if installed
+  (`inkscape in.svg -o out.png -d 300`).
+- **SkiaSharp / GDI+ renders:** draw the panel as SVG (or with Pillow
+  `ImageDraw`, or pycairo) and convert as above.
+- **PSWriteHTML dashboards:** write a short Python script that emits the
+  HTML table (or a Markdown log) instead.
+- **PDF export:** headless Chrome/Chromium `--print-to-pdf` instead of Edge;
+  check pages with `pdfinfo` or pypdf.
+
 
 ## To expand this skill later
 

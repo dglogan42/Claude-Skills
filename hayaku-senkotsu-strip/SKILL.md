@@ -1,6 +1,6 @@
 ---
 name: hayaku-senkotsu-strip
-description: Write and render "Hayaku" — Bubble Tea News's syndicated four-panel (yonkoma) sports-manga strip, an original high-school volleyball series rendered in "senkotsu" style (clean bamboo-like linework, HB under-sketch with 2B-6B-style hatched/crosshatched shading via a manual line-hatch technique, forced perspective via panel composition, high-contrast black-and-white for newsprint) using SkiaSharp (MIT-licensed, cross-platform) from PowerShell as the primary renderer — schematic panel compositions in the same simple register as the-boba-side-cartoon's ImageMagick art, not full character illustration. A compiled C + Win32 GDI path is also verified working as an alternative renderer (same composition, no bezier curves though — straight-edge/circle primitives only). A third verified path — hand-authored SVG rasterized via Inkscape's CLI (`--export-png-antialias=3 --export-png-color-mode=Gray_8`) — produces the crispest linework/hatching of the three, since rasterization happens once from real vector geometry at final resolution rather than a fixed-pixel canvas upscale; used for Issue 9's debut strip. Render at 2000px+ per side with antialiasing on, DPI-stamped to 300 via an ImageMagick post-process (none of these renderers write DPI metadata directly); optionally verify the finished PNG loads correctly in pygame and/or WPF as an independent round-trip/DPI check. Runs as an unrelated syndicated strip alongside the paper's own bubble tea content, the way a real newspaper carries Garfield or Peanuts. Use when assembling a Bubble Tea News issue that wants a syndicated comic-strip slot, or whenever the user wants a Hayaku strip written up and rendered. This is a seed skill: sparse by design, built from one house style brief (senkotsu.YAML) and three verified render methods; expand with a running cast, match/season arc, and richer figure primitives as strips accumulate.
+description: Write and render "Hayaku" — Bubble Tea News's syndicated four-panel (yonkoma) sports-manga strip, an original high-school volleyball series rendered in "senkotsu" style (clean bamboo-like linework, HB under-sketch with 2B-6B-style hatched/crosshatched shading via a manual line-hatch technique, forced perspective via panel composition, high-contrast black-and-white for newsprint) using SkiaSharp (MIT-licensed, cross-platform) from PowerShell as the primary renderer — schematic panel compositions in the same simple register as the-boba-side-cartoon's ImageMagick art, not full character illustration. A compiled C + Win32 GDI path is also verified working as an alternative renderer (same composition, no bezier curves though — straight-edge/circle primitives only). A third verified path — hand-authored SVG rasterized via Inkscape's CLI (`--export-png-antialias=3 --export-png-color-mode=Gray_8`) — produces the crispest linework/hatching of the three, since rasterization happens once from real vector geometry at final resolution rather than a fixed-pixel canvas upscale; used for Issue 9's debut strip. Render at 2000px+ per side with antialiasing on, DPI-stamped to 300 via an ImageMagick post-process (none of these renderers write DPI metadata directly); optionally verify the finished PNG loads correctly in pygame and/or WPF as an independent round-trip/DPI check. Runs as an unrelated syndicated strip alongside the paper's own bubble tea content, the way a real newspaper carries Garfield or Peanuts. Use when assembling a Bubble Tea News issue that wants a syndicated comic-strip slot, or whenever the user wants a Hayaku strip written up and rendered. This is a seed skill: sparse by design, built from one house style brief (senkotsu.YAML) and three verified render methods; expand with a running cast, match/season arc, and richer figure primitives as strips accumulate. Includes an artist-craft pass: artistic question, style pillars, name-before-draw panel plan, and a critique pass before print.
 user-invocable: true
 ---
 
@@ -370,6 +370,18 @@ Verified end-to-end: compiled the full four-panel debut strip this way
 and it matched the SkiaSharp version's composition exactly (same panel
 grid, same figure poses, same captions).
 
+## Artist craft (from bot artist skills)
+
+Craft borrowed from the artist-mode, manga-studio and art-director skills — craft only, not their persona voices. Original characters only; no franchise characters. Step 0 boundaries still come first.
+
+1. **Artistic question** — write one sentence this issue's strip answers (e.g. "what does losing look like when nobody admits it?"). If the gag doesn't answer it, fix the gag, not the question.
+2. **Style pillars** — senkotsu · sports · kinetic. Keep line weight consistent (heavier outer contour, lighter interior detail), simple readable silhouettes, high-contrast black-and-white that survives newsprint. Don't: polished illustration, gradients that mud in print, more than one focal point per panel.
+3. **Name before drawing** — Always 4 panels, ki-shou-ten-ketsu: 1 ki setup, 2 shou development, 3 ten twist, 4 ketsu landing. Per panel: beat, framing (forced-perspective low angle for the ten panel), ball/motion direction, who reacts. Keep balloons short (~25 words max), placed in reading order, never over a face.
+4. **Render** — via the existing pipeline (Step 3 SkiaSharp, Step 3a SVG + Inkscape, or Step 3b C + GDI). Art stays schematic or hand-drawn-photo, not polished illustration. GenerateImage is not required and never replaces Step 0 originality rules.
+5. **Critique pass before print** — open the finished PNG and look at it before embedding: (a) what is actually visible, (b) does it match the name and artistic question, (c) one or two concrete fixes (e.g. "reactor's face too small at print size — enlarge 30%"). Separate observation from interpretation; never critique art you haven't opened.
+
+Shared critique language with: cat-vs-dog-cartoon, the-boba-side-cartoon, doki-doki-mon-strip.
+
 ## Step 4 — Delivery
 
 - Within a *Bubble Tea News* issue: an optional rotating slot alongside,
@@ -422,6 +434,29 @@ current parameter names with `Get-Command <name> -Syntax` before reuse,
 since a plausible-looking guess (`-Title`) fails silently into a warning
 rather than a hard error. This dashboard is a bookkeeping aid for
 tracking the arc across issues, not part of the delivered strip.
+
+## On Linux
+
+The Windows steps above (ImageMagick 7 `magick`, Inkscape, SkiaSharp,
+GDI+, PowerShell, PSWriteHTML, Edge) stay valid on Windows. On a Linux
+box use these equivalents:
+
+- **DPI tagging:** Pillow, `Image.open(p).save(out, dpi=(300, 300))`. If
+  ImageMagick is installed but there's no `magick` binary (IM6), use
+  `convert in.png -units PixelsPerInch -density 300 out.png` and
+  `identify -format "%x x %y units=%U" out.png`.
+- **SVG to PNG:** `rsvg-convert -w 1800 in.svg -o out.png` (librsvg2-bin),
+  or headless Chrome: `google-chrome --headless=new --no-sandbox
+  --hide-scrollbars --window-size=1800,1260 --screenshot=out.png
+  file://$PWD/in.svg`. Inkscape CLI also works if installed
+  (`inkscape in.svg -o out.png -d 300`).
+- **SkiaSharp / GDI+ renders:** draw the panel as SVG (or with Pillow
+  `ImageDraw`, or pycairo) and convert as above.
+- **PSWriteHTML dashboards:** write a short Python script that emits the
+  HTML table (or a Markdown log) instead.
+- **PDF export:** headless Chrome/Chromium `--print-to-pdf` instead of Edge;
+  check pages with `pdfinfo` or pypdf.
+
 
 ## To expand this skill later
 

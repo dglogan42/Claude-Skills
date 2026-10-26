@@ -1,6 +1,6 @@
 ---
 name: the-boba-side-cartoon
-description: Write and render "The Boba Side" — Bubble Tea News's single-panel gag cartoon slot, staged as an anime/manga-style gag (otaku-culture and bubble-tea-meme sensibilities applied to original characters — chibi, shoujo, seinen, shonen, bishoujo sub-styles) and actually rendered with ImageMagick's `-draw`/inline-MVG primitives to PNG — simple schematic raster shapes carrying anime-style cues (screentone-dot hatching, speed lines, sparkle effects, named spot colors), not genuine polished anime illustration, since there's no image-generation model in this workflow. ImageMagick is the primary renderer, embedded via `<img>` (its SVG *writer* is confirmed broken for multi-shape colored output — geometry survives but fill/stroke colors and all but the last shape are dropped — so PNG is the only reliable output here, unlike this library's other pycairo/SkiaSharp renderers). A compiled C + Win32 GDI path is also verified working as an alternative renderer, though plain GDI can't do bezier curves (straight-edge/circle primitives only). A third verified path — hand-authored SVG (not ImageMagick's broken SVG *writer*) rasterized via Inkscape's CLI (`--export-png-antialias=3`) — sidesteps the SVG-writer bug entirely and gives cleaner linework/screentone than ImageMagick's `-draw`; used for Issue 8's panel. Reuses hard-won lessons from this paper's own rollout: give large fill shapes internal detail so they read at real print size, and watch the 2-page print budget. Use when assembling a Bubble Tea News issue that wants a cartoon slot, or whenever the user wants a one-panel anime-style gag actually drawn. This is a seed skill: sparse by design, built from one format and three verified render methods; expand with more gag premises and meme formats as they come up.
+description: Write and render "The Boba Side" — Bubble Tea News's single-panel gag cartoon slot, staged as an anime/manga-style gag (otaku-culture and bubble-tea-meme sensibilities applied to original characters — chibi, shoujo, seinen, shonen, bishoujo sub-styles) and actually rendered with ImageMagick's `-draw`/inline-MVG primitives to PNG — simple schematic raster shapes carrying anime-style cues (screentone-dot hatching, speed lines, sparkle effects, named spot colors), not genuine polished anime illustration, since there's no image-generation model in this workflow. ImageMagick is the primary renderer, embedded via `<img>` (its SVG *writer* is confirmed broken for multi-shape colored output — geometry survives but fill/stroke colors and all but the last shape are dropped — so PNG is the only reliable output here, unlike this library's other pycairo/SkiaSharp renderers). A compiled C + Win32 GDI path is also verified working as an alternative renderer, though plain GDI can't do bezier curves (straight-edge/circle primitives only). A third verified path — hand-authored SVG (not ImageMagick's broken SVG *writer*) rasterized via Inkscape's CLI (`--export-png-antialias=3`) — sidesteps the SVG-writer bug entirely and gives cleaner linework/screentone than ImageMagick's `-draw`; used for Issue 8's panel. Reuses hard-won lessons from this paper's own rollout: give large fill shapes internal detail so they read at real print size, and watch the 2-page print budget. Use when assembling a Bubble Tea News issue that wants a cartoon slot, or whenever the user wants a one-panel anime-style gag actually drawn. This is a seed skill: sparse by design, built from one format and three verified render methods; expand with more gag premises and meme formats as they come up. Includes an artist-craft pass: artistic question, style pillars, name-before-draw panel plan, and a critique pass before print.
 user-invocable: true
 ---
 
@@ -229,6 +229,18 @@ gap: if a panel's composition needs a smooth curve (a swan neck, a
 lumpy hedge), either accept the faceted look, use GDI's `PolyBezier`
 (untried here so far), or use ImageMagick instead for that panel.
 
+## Artist craft (from bot artist skills)
+
+Craft borrowed from the artist-mode, manga-studio and art-director skills — craft only, not their persona voices. Original characters only; no franchise characters. Step 0 boundaries still come first.
+
+1. **Artistic question** — write one sentence this issue's strip answers (e.g. "what does losing look like when nobody admits it?"). If the gag doesn't answer it, fix the gag, not the question.
+2. **Style pillars** — anime-meme · schematic · punchy. Keep line weight consistent (heavier outer contour, lighter interior detail), simple readable silhouettes, high-contrast black-and-white that survives newsprint. Don't: polished illustration, gradients that mud in print, more than one focal point per panel.
+3. **Name before drawing** — Always exactly 1 panel. Plan: the single beat, framing, focal character, reactor (or reaction effect: sparkle, sweat-drop, speed lines), caption/balloon position. Keep balloons short (~25 words max), placed in reading order, never over a face.
+4. **Render** — via the existing pipeline (Step 2 ImageMagick, Step 3a SVG + Inkscape, or Step 3b C + GDI). Art stays schematic or hand-drawn-photo, not polished illustration. GenerateImage is not required and never replaces Step 0 originality rules.
+5. **Critique pass before print** — open the finished PNG and look at it before embedding: (a) what is actually visible, (b) does it match the name and artistic question, (c) one or two concrete fixes (e.g. "reactor's face too small at print size — enlarge 30%"). Separate observation from interpretation; never critique art you haven't opened.
+
+Shared critique language with: cat-vs-dog-cartoon, hayaku-senkotsu-strip, doki-doki-mon-strip.
+
 ## Step 4 — Delivery
 
 - Within a *Bubble Tea News* issue: an optional rotating slot — see the
@@ -284,6 +296,29 @@ current parameter names with `Get-Command <name> -Syntax` before reuse —
 `New-HTMLTimelineItem` turned out to take `-HeadingText`, not `-Title`,
 despite looking like it should). This is a bookkeeping aid, generated on
 demand when checking for premise reuse — not part of the delivered issue.
+
+## On Linux
+
+The Windows steps above (ImageMagick 7 `magick`, Inkscape, SkiaSharp,
+GDI+, PowerShell, PSWriteHTML, Edge) stay valid on Windows. On a Linux
+box use these equivalents:
+
+- **DPI tagging:** Pillow, `Image.open(p).save(out, dpi=(300, 300))`. If
+  ImageMagick is installed but there's no `magick` binary (IM6), use
+  `convert in.png -units PixelsPerInch -density 300 out.png` and
+  `identify -format "%x x %y units=%U" out.png`.
+- **SVG to PNG:** `rsvg-convert -w 1800 in.svg -o out.png` (librsvg2-bin),
+  or headless Chrome: `google-chrome --headless=new --no-sandbox
+  --hide-scrollbars --window-size=1800,1260 --screenshot=out.png
+  file://$PWD/in.svg`. Inkscape CLI also works if installed
+  (`inkscape in.svg -o out.png -d 300`).
+- **SkiaSharp / GDI+ renders:** draw the panel as SVG (or with Pillow
+  `ImageDraw`, or pycairo) and convert as above.
+- **PSWriteHTML dashboards:** write a short Python script that emits the
+  HTML table (or a Markdown log) instead.
+- **PDF export:** headless Chrome/Chromium `--print-to-pdf` instead of Edge;
+  check pages with `pdfinfo` or pypdf.
+
 
 ## To expand this skill later
 

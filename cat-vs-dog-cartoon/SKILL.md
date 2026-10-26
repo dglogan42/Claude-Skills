@@ -1,6 +1,6 @@
 ---
 name: cat-vs-dog-cartoon
-description: Write and prepare "Cat vs Dog" — Bubble Tea News's syndicated domestic-sitcom gag cartoon starring an unnamed cat-and-dog household duo, format variable issue to issue (single panel most weeks, occasionally a short multi-panel beat when a gag needs the setup) — unlike The Boba Side, which stays single-panel every time. Unrelated to bubble tea by design, the way a real paper carries a licensed strip like Garfield or Get Fowl alongside its own local content. Art is hand-drawn on paper, photographed, and cleaned up digitally — a background-blur divide to flatten shadow/vignette, autocontrast, crop tight to the drawn content — rather than programmatically rendered; see Step 3 for the actual verified pipeline (Python/Pillow). Debuted Issue 10, taking that issue's cartoon-slot turn ahead of The Boba Side's own promised return. Use when assembling a Bubble Tea News issue that wants this cartoon slot, or when the user wants a new Cat vs Dog gag written up. This is a seed skill: sparse by design, built from one debut panel; expand with a running gag library and a settled panel-count convention as strips accumulate.
+description: Write and prepare "Cat vs Dog" — Bubble Tea News's syndicated domestic-sitcom gag cartoon starring an unnamed cat-and-dog household duo, format variable issue to issue (single panel most weeks, occasionally a short multi-panel beat when a gag needs the setup) — unlike The Boba Side, which stays single-panel every time. Unrelated to bubble tea by design, the way a real paper carries a licensed strip like Garfield or Get Fowl alongside its own local content. Art is hand-drawn on paper, photographed, and cleaned up digitally — a background-blur divide to flatten shadow/vignette, autocontrast, crop tight to the drawn content — rather than programmatically rendered; see Step 3 for the actual verified pipeline (Python/Pillow). Debuted Issue 10, taking that issue's cartoon-slot turn ahead of The Boba Side's own promised return. Use when assembling a Bubble Tea News issue that wants this cartoon slot, or when the user wants a new Cat vs Dog gag written up. This is a seed skill: sparse by design, built from one debut panel; expand with a running gag library and a settled panel-count convention as strips accumulate. Includes an artist-craft pass: artistic question, style pillars, name-before-draw panel plan, and a critique pass before print.
 user-invocable: true
 ---
 
@@ -108,6 +108,33 @@ art is a real drawing, digitally restored to print quality.
    `issues/cat-vs-dog-issueN.png` thereafter, matching this library's
    existing `hayaku-issue9-debut.png` convention.
 
+### Step 3b — Code-drawn fallback (no hand-drawn photo available)
+
+When there's no photographed drawing for the issue, don't skip the slot.
+Draw the panel as simple black-and-white SVG line art instead (white
+background, thick border, round cartoon cat and dog with dot eyes, the
+human-world trigger, one speech bubble, "Cat vs Dog" caption). Then
+render it to PNG with headless Chrome (`google-chrome --headless=new
+--no-sandbox --hide-scrollbars --window-size=1800,1260
+--screenshot=issues/cat-vs-dog-issueN.png file://$PWD/issues/cat-vs-dog-issueN.svg`),
+`rsvg-convert -w 1800`, or draw it directly with Pillow `ImageDraw`.
+Keep the `.svg` next to the PNG, look at the PNG before embedding, and
+note "code-drawn fallback, not hand-drawn" in the issue's no-print
+instructions and the rotation log. First used for the Issue 22 test
+build (smoke-alarm chirp gag).
+
+## Artist craft (from bot artist skills)
+
+Craft borrowed from the artist-mode, manga-studio and art-director skills — craft only, not their persona voices. Original characters only; no franchise characters. Step 0 boundaries still come first.
+
+1. **Artistic question** — write one sentence this issue's strip answers (e.g. "what does losing look like when nobody admits it?"). If the gag doesn't answer it, fix the gag, not the question.
+2. **Style pillars** — deadpan · domestic · readable. Keep line weight consistent (heavier outer contour, lighter interior detail), simple readable silhouettes, high-contrast black-and-white that survives newsprint. Don't: polished illustration, gradients that mud in print, more than one focal point per panel.
+3. **Name before drawing** — 1–3 panels (single most weeks). Per panel: beat, framing (wide room / mid two-shot / close reaction), who acts, who reacts. Deadpan lives in the reactor's flat face, so name the reactor every panel. Keep balloons short (~25 words max), placed in reading order, never over a face.
+4. **Render** — via the existing pipeline (Step 3 (hand-drawn photo + Pillow cleanup) or Step 3b code-drawn fallback). Art stays schematic or hand-drawn-photo, not polished illustration. GenerateImage is not required and never replaces Step 0 originality rules.
+5. **Critique pass before print** — open the finished PNG and look at it before embedding: (a) what is actually visible, (b) does it match the name and artistic question, (c) one or two concrete fixes (e.g. "reactor's face too small at print size — enlarge 30%"). Separate observation from interpretation; never critique art you haven't opened.
+
+Shared critique language with: the-boba-side-cartoon, hayaku-senkotsu-strip, doki-doki-mon-strip.
+
 ## Step 4 — Delivery
 
 - Within a *Bubble Tea News* issue: shares the cartoon slot's biweekly-ish
@@ -123,6 +150,29 @@ art is a real drawing, digitally restored to print quality.
   calling an issue done, same as every other cartoon slot.
 - Byline convention: *"Cat vs Dog — a new syndicated gag cartoon, Bubble
   Tea News's cartoon slot, hand-drawn; panel count varies week to week."*
+
+## On Linux
+
+The Windows steps above (ImageMagick 7 `magick`, Inkscape, SkiaSharp,
+GDI+, PowerShell, PSWriteHTML, Edge) stay valid on Windows. On a Linux
+box use these equivalents:
+
+- **DPI tagging:** Pillow, `Image.open(p).save(out, dpi=(300, 300))`. If
+  ImageMagick is installed but there's no `magick` binary (IM6), use
+  `convert in.png -units PixelsPerInch -density 300 out.png` and
+  `identify -format "%x x %y units=%U" out.png`.
+- **SVG to PNG:** `rsvg-convert -w 1800 in.svg -o out.png` (librsvg2-bin),
+  or headless Chrome: `google-chrome --headless=new --no-sandbox
+  --hide-scrollbars --window-size=1800,1260 --screenshot=out.png
+  file://$PWD/in.svg`. Inkscape CLI also works if installed
+  (`inkscape in.svg -o out.png -d 300`).
+- **SkiaSharp / GDI+ renders:** draw the panel as SVG (or with Pillow
+  `ImageDraw`, or pycairo) and convert as above.
+- **PSWriteHTML dashboards:** write a short Python script that emits the
+  HTML table (or a Markdown log) instead.
+- **PDF export:** headless Chrome/Chromium `--print-to-pdf` instead of Edge;
+  check pages with `pdfinfo` or pypdf.
+
 
 ## To expand this skill later
 
